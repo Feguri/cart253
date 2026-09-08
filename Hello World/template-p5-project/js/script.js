@@ -26,8 +26,8 @@ function setup() {
  * at the position of the user's cursor
 */
 function draw() {
-    // Make the background black (specified as RGB)
-    background(0, 0, 0);
+    // Make the background blue
+    background(16, 16, 60);
 
     // Draw a pyramid
     // How many levels for the pyramid
@@ -43,7 +43,7 @@ function draw() {
         // No line around the levels
         noStroke();
         // Set the fill colour to our shade (RGB)
-        fill(shade, shade, 0);
+        fill(shade, (shade - 50), 80);
         // Draw rectangles from the centre
         rectMode(CENTER);
         // Draw the rectangle in the centre of the canvas
@@ -60,7 +60,7 @@ function draw() {
     noStroke();
     // Make it red (RGB)
     fill(255, 0, 0);
-    // Draw a 100x100 circle at the mouse position
-    ellipse(mouseX, mouseY, 100, 100);
+    // Draw a 50x50 circle at the mouse position
+    ellipse(mouseX, mouseY, 50, 50);
     pop();
 }
