@@ -5,7 +5,7 @@ The purpose of this website is to show my work in this course, and display my ow
 
 ## Sub-section with useful links
 
-- [My Personal Website](byfelipeserrou.com)
+- [Personal Website](https://www.byfelipeserrou.com)
 
 - [Reflective Journal](./journal.md)
 
