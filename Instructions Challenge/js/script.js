@@ -17,12 +17,30 @@ function setup() {
 
 // This function draws a building at the specified position with the specified dimensions.
 function drawBuilding(x, y, width, height) {
-    square(x, y, 100);
+    noStroke();
+    fill(120, 120, 120);
+    rect(x, y, width, height);
 }
 
 /**
  * This draw function (...)
 */
 function draw() {
+    // changes the background color to white
+    background(255, 255, 255)
+
+
+    // draws a rectangle inside the canvas to make the sky
+    fill(30, 0, 60)
+    rect(50, 50, 500, 500);
+    // draws a moon in the sky
+    noStroke();
+    fill(255,255,255);
+    circle(125,125,80);
+    // draws the shadow of the moon in the sky
+    noStroke();
+    fill(30,0,60);
+    circle(140,110,80);
+
     drawBuilding(100, 100, 100, 100);
 }
