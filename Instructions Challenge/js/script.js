@@ -12,7 +12,7 @@
  * This is the setup function for the program.
 */
 function setup() {
-
+  createCanvas(600, 750);
 }
 
 // This function draws a building at the specified position with the specified dimensions.
@@ -25,5 +25,4 @@ function drawBuilding(x, y, width, height) {
 */
 function draw() {
     drawBuilding(100, 100, 100, 100);
-    drawBuilding(200, 200, 100, 100);
 }
