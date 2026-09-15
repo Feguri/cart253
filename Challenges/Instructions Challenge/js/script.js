@@ -12,7 +12,8 @@
  * This is the setup function for the program.
 */
 function setup() {
-  createCanvas(600, 750);
+  let canvas = createCanvas(600, 750);
+  canvas.parent('#sketch');
 }
 
 function drawWindow(x, y, width) {
