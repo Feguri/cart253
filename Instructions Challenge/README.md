@@ -2,7 +2,7 @@
 
 Felipe S. Paiva and Felipe Amorim Castelo Branco
 
-[View this project online](https://artcbranco.github.io/cart253/challenges/instructions/city-skyline)
+[View this project online](https://feguri.github.io/cart253/Instructions%20Challenge/)
 
 ## Description
 
