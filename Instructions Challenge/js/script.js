@@ -1,24 +1,29 @@
 /**
- * Title of Project
- * Author Name
+ * City Skyline
+ * Felipe Paiva & Felipe Amorim
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * A simple city skyline visualization using p5.js.
+ * 
  */
 
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * This is the setup function for the program.
 */
 function setup() {
 
 }
 
+// This function draws a building at the specified position with the specified dimensions.
+function drawBuilding(x, y, width, height) {
+    square(x, y, 100);
+}
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * This draw function (...)
 */
 function draw() {
-
+    drawBuilding(100, 100, 100, 100);
+    drawBuilding(200, 200, 100, 100);
 }
