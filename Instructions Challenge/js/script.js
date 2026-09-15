@@ -16,10 +16,13 @@ function setup() {
 }
 
 // This function draws a building at the specified position with the specified dimensions.
-function drawBuilding(x, y, width, height) {
+function drawBuilding(x, width, height) {
+    // Creates a variable to automatically calculate the building position based on its height
+    var fixHeight = 550 - height;
+    // Draws the building with a gray color
     noStroke();
     fill(120, 120, 120);
-    rect(x, y, width, height);
+    rect(x, fixHeight, width, height);
 }
 
 /**
@@ -42,5 +45,5 @@ function draw() {
     fill(30,0,60);
     circle(140,110,80);
 
-    drawBuilding(100, 100, 100, 100);
+    drawBuilding(50, 100, 200);
 }
