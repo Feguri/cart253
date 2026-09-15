@@ -10,7 +10,7 @@ This is a vector/code art for the class challenge of week 2 "instructions". It d
 
 ## Attribution
 
-Project made in cooperation with [Felipe S. Paiva](https://feguri.github.io/cart253/)
+Project made in cooperation with [Felipe Amorim](https://artcbranco.github.io/cart253/)
 
 ## License
 
