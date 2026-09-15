@@ -47,12 +47,11 @@ function drawBuilding(x, width, height) {
 
 
 /**
- * This draw function (...)
+ * This draw function's role is to draw the city skyline, including the sky, moon, buildings, and foreground. It works by first setting the background color, then drawing the sky and moon, followed by the buildings and then finally the foreground. The function uses loops to draw windows on each building based on their dimensions.
 */
 function draw() {
     // changes the background color to white
     background(255, 255, 255)
-
 
     // draws a rectangle inside the canvas to make the sky
     fill(30, 0, 60)
