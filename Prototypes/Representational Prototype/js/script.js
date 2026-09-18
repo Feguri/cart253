@@ -63,6 +63,13 @@ function draw() {
     triangle(230, 280, 270, 280, 250, 270);
 
     // This draws the whiskers using lines!!!
+    stroke("black");
+    line(230, 250, 50, 150);
+    line(220, 260, 40, 200);
+    line(220, 270, 40, 250);
 
-    line(100, 130, 0, 30);
+    // Inverted lines
+    line(270, 250, 450, 150);
+    line(280, 260, 460, 200);
+    line(280, 270, 460, 250);
 }
