@@ -12,8 +12,6 @@
 */
 function setup() {
     createCanvas(500, 500);
-
-    
 }
 
 
@@ -54,4 +52,17 @@ function draw() {
     ellipse(175, 175, 10, 40);
     ellipse(325, 175, 10, 40);
 
+    // This draws the little nose
+    fill("black");
+    noStroke();
+    triangle(230, 240, 270, 240, 250, 270);
+
+    // This draws the little mouth a little triangle
+    fill("black");
+    noStroke();
+    triangle(230, 280, 270, 280, 250, 270);
+
+    // This draws the whiskers using lines!!!
+
+    line(100, 130, 0, 30);
 }
