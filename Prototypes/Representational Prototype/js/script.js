@@ -1,14 +1,14 @@
 /**
- * Representation of 
+ * Representation of a Cat
  * Felipe Paiva
  * 
- * This project contains representational things.
+ * This project contains representational things: An orange Cat
  */
 
 "use strict";
 
 /**
- * Setup creates a Canvas of a certain dimension.
+ * Setup creates a Canvas of a certain dimension (500x500)
 */
 function setup() {
     createCanvas(500, 500);
@@ -40,7 +40,6 @@ function draw() {
     triangle(400, 150, 250, 100, 400, 0);
 
     // This draws the two eyes using circles
-
     fill("white");
     noStroke();
     circle(175, 175, 50);
@@ -68,7 +67,7 @@ function draw() {
     line(220, 260, 40, 200);
     line(220, 270, 40, 250);
 
-    // Inverted lines
+    // Inverted lines to draw the whiskers on the other side
     line(270, 250, 450, 150);
     line(280, 260, 460, 200);
     line(280, 270, 460, 250);
