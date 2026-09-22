@@ -61,7 +61,6 @@ function draw() {
             }
             // creates the rect using the i variable used in the for loop and the position variable
             rect(i + Position, Position, i, 20);
-            
         };
         // Adds to the position variable for greater variation and creating the "stairs" look. Changing this value
         // Will make the stairs shape change
