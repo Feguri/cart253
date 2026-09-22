@@ -15,8 +15,8 @@ The purpose of this website is to show my work in this course, and display my ow
 
 ### Instructions prototype
 
-1. - [Representational](./Prototypes/Representational%20Prototype/index.html)
-2. - [Abstract](./Prototypes/Abstract%20Prototype/index.html)
-3. - [Really Weird](./Prototypes/Really%20Weird%20Prototype/index.html)
+1. - [Representational](https://feguri.github.io/cart253/Prototypes/Representational%20Prototype/index.html)
+2. - [Abstract](https://feguri.github.io/cart253/Prototypes/Abstract%20Prototype/index.html)
+3. - [Really Weird](https://feguri.github.io/cart253/Prototypes/Really%20Weird%20Prototype/index.html)
 
 
