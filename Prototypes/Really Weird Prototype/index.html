@@ -19,10 +19,44 @@
 
   <!-- My script(s) -->
   <script src="js/script.js"></script>
+  <style>
+    html {
+      background-color: black;
+      color: white;
+      
+    }
+    h1 {
+      text-align: center;
+    }
+    #content {
+      width: 40%;
+      margin: 0 auto;
+    }
+    #continue {
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- HTML would go here if needed. -->
+
+  <div id="content">
+    <h1>WARNING: PHOTOSENSITIVITY/EPILEPSY SEIZURES</h1>
+    <p>A very small percentage of people may experience epileptic seizures or blackouts when exposed to certain kinds of flashing lights or light patterns. These persons, or even people who have no history of seizures or epilepsy, may experience epileptic symptoms or seizures while playing video games.
+
+If you or any of your relatives has an epileptic condition or has had seizures of any kind, consult your physician before playing any video game.
+</p>
+<p>IMMEDIATELY DISCONTINUE use and consult a physician if you or your child experience any of the following symptoms: dizziness, altered vision, eye or muscle twitching, involuntary movements, loss of awareness, disorientation, or convulsions. Parents should watch for or ask their children about the above symptoms.
+
+You may reduce risk of photosensitive epileptic seizures by taking the following precautions: sit farther from the screen, use a smaller screen, play in a well-lit room, do not play when you are drowsy or fatigued.</p>
+    <p>Continue?</p>
+    <button id="continue">Continue</button>
+  </div>
+    <script>
+    document.getElementById("continue").addEventListener("click", function(){
+      document.getElementById("content").remove();
+    });
+  </script>
 </body>
 
 </html>
