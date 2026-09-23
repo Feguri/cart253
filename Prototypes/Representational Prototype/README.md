@@ -1,6 +1,6 @@
 # Orange Cat
 
-AUTHOR NAME
+FELIPE PAIVA
 
 [View this project online](https://feguri.github.io/cart253/Prototypes/Representational%20Prototype/index.html)
 
