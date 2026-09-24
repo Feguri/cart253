@@ -13,3 +13,17 @@ My aspirations: I hope to get good in 3D art and development, I have lots of ide
 ### My 3D model based on the illustration:
 
 ![Pseudosporchnus 3D](./Images/PseudoRender.png)
+
+## Entry 2 - 2026/09/24
+
+This entry is a reflection of my activity for the Week 2 activities. I will be including a screenshot *below this entry* of my favorite image that I created using one of my prototypes. 
+
+First, I started with the representational prototype which is of an orange cat. Orange cats are supposed to have only one or 2 braincells so It will definetly not take not a lot of brain power to make one (that was my logic).
+
+Then, I moved on to the Abstract prototype. What you may see in there are not triangles. I hate p5 triangles so much that I, instead, made ones using thousands of squares and for loops :) very efficient
+
+Finally, I made the really weird prototype. I wanted people to think: huh, that's a weird... thing... in the internet. And I gotta say, it is weird indeed. It makes no sense and may or may not cause seizures :P
+
+![Screenshot of my Really weird prototype](./Images/Really%20Weird%20prototype%20Screenshot.png)
+
+## Entry 3 -
