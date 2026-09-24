@@ -17,21 +17,21 @@ The purpose of this website is to show my work in this course, and display my ow
 
 ### Representational Prototype
 
-![Screenshot of my scary clown](./assignments/instructions/scary-clown/clown-screenshot.png)
+![Screenshot of my Representational Prototype](./Images/Representational%20Prototype%20Screenshot.png)
 
 - [View online](https://feguri.github.io/cart253/Prototypes/Representational%20Prototype/index.html)
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Representational%20Prototype)
 
 ### Abstract Prototype
 
-![Screenshot of my friendly clown](./assignments/instructions/friendly-clown/clown-screenshot.png)
+![Screenshot of my Abstract Prototype](./Images/Abstract%20Prototype%20Screenshot.png)
 
 - [View online](https://feguri.github.io/cart253/Prototypes/Abstract%20Prototype/index.html)
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Abstract%20Prototype%20copy)
 
 ### Really weird prototype
 
-![Screenshot of my friendly cow](./assignments/instructions/friendly-cow/cow-screenshot.png)
+![Screenshot of my Really weird prototype](./Images/Really%20Weird%20prototype%20Screenshot.png)
 
 - [View online](https://feguri.github.io/cart253/Prototypes/Really%20Weird%20Prototype/index.html)
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Really%20Weird%20Prototype)
