@@ -24,7 +24,7 @@ function draw() {
     noStroke();
     fill('black');
     // defines the varibles used in the program
-    var origin = {x: 0, y:0};
+    var origin = {x: 250, y:250};
     var interval = 20;
     var fillerObject = square(origin.x, origin.y, 50);
 
@@ -67,21 +67,19 @@ function draw() {
         fill('black');
         square(x, y, 50);
     }
-    // gets the x and y position of the mouse
-    window.addEventListener('mousemove', (event) => {
 
-        let mouseOrigin = {x: event.clientX, y: event.clientY};
 
-        let distancesArray = getDistances(origin, mouseOrigin);
+    let mouseOrigin = {x: mouseX, y: mouseY};
 
-        if (distancesArray && distancesArray.points) {
-            for (let i = 0; i < distancesArray.points.length; i++) {
-                // Grab the current point object instance
-                let currentPoint = distancesArray.points[i];
-                drawSquare(currentPoint.x, currentPoint.y);
-            }
+    let distancesArray = getDistances(origin, mouseOrigin);
+
+    if (distancesArray && distancesArray.points) {
+        for (let i = 0; i < distancesArray.points.length; i++) {
+            // Grab the current point object instance
+            let currentPoint = distancesArray.points[i];
+            drawSquare(currentPoint.x, currentPoint.y);
         }
+    }
 
             
-    });
 }
