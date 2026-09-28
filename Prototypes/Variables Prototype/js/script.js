@@ -61,16 +61,27 @@ function draw() {
         return { points };
     }
 
-    console.log(getDistances(origin, {x: 500, y:500}))
-
+    function drawSquare(x, y) {
+        rectMode(CENTER); 
+        noStroke();
+        fill('black');
+        square(x, y, 50);
+    }
     // gets the x and y position of the mouse
     window.addEventListener('mousemove', (event) => {
 
-        let mouseOrigin = {x: event.clientX, y: event.clientY}
-            
-            const x = event.clientX;
-            const y = event.clientY; 
+        let mouseOrigin = {x: event.clientX, y: event.clientY};
+
+        let distancesArray = getDistances(origin, mouseOrigin);
+
+        if (distancesArray && distancesArray.points) {
+            for (let i = 0; i < distancesArray.points.length; i++) {
+                // Grab the current point object instance
+                let currentPoint = distancesArray.points[i];
+                drawSquare(currentPoint.x, currentPoint.y);
+            }
+        }
+
             
     });
 }
-console.log(getDistances(origin, {x: 500, y:500}))
