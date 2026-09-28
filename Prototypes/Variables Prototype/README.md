@@ -5,7 +5,6 @@ FELIPE PAIVA
 
 ## Description
 
-]
 
 ## Attribution
 
