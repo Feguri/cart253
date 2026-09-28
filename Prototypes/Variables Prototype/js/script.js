@@ -2,7 +2,8 @@
  * Variable prototype 1
  * Felipe Paiva
  * 
- * This project comprises of
+ * This project comprises of two points, the mouse point that changes and the origin point. It draws an object based on the distance between
+ * those two points.
  */
 
 "use strict";
@@ -14,9 +15,8 @@ function setup() {
     createCanvas(500, 500);
 }
 
-
 /**
- * Function uses variables, mouse tracking, and if statements to display squares in the line betwoon a single 
+ * Function uses variables, mouse tracking, and if statements to display squares in the line between a single 
  * determined point (also a var) and the mouse.
 */
 function draw() {
@@ -41,10 +41,8 @@ function draw() {
             return { points: [{ x: p1.x, y: p1.y }] };
         }
 
-        // Calculate how many points fit in between
+        // Calculate how many points fit in between, then roundit with Math.floor
         const numberOfPoints = Math.floor(distance / interval);
-
-        var finalCoordinates = {};
 
         // Calculate unit vector directions
         const unitX = dx / distance;
@@ -68,18 +66,17 @@ function draw() {
         square(x, y, 50);
     }
 
-
     let mouseOrigin = {x: mouseX, y: mouseY};
-
     let distancesArray = getDistances(origin, mouseOrigin);
 
+    // checks if there are distances and points before drawing them
     if (distancesArray && distancesArray.points) {
+        // loop to draw each square
         for (let i = 0; i < distancesArray.points.length; i++) {
             // Grab the current point object instance
             let currentPoint = distancesArray.points[i];
             drawSquare(currentPoint.x, currentPoint.y);
         }
     }
-
             
 }
