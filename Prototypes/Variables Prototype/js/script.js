@@ -20,7 +20,7 @@ function setup() {
  * determined point (also a var) and the mouse.
 */
 function draw() {
-    background(220)
+    background(220);
     noStroke();
     fill('black');
     // defines the varibles used in the program
