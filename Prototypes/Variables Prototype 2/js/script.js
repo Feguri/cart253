@@ -30,7 +30,7 @@ function draw() {
 // it changes the iterationNum variable with and if/else statement
 function mouseClicked() {
     let shapes = {
-    square: square(mouseX, mouseY, mouseX),
+        square: square(mouseX, mouseY, mouseX),
         triangle: triangle(mouseX, mouseY, (mouseX + 100), (mouseY + 100), (mouseX+20), (mouseY+20))
     }
 
