@@ -14,21 +14,24 @@ let masterSpeed = 5;
 const puck = {
     x: 200,
     y: 200,
-    size: 100,
-    fill: "#991e1e",
-    fills: {
-        noOverlap: "#991313", // red for no overlap
-        overlap: "#137e13" // green for overlap
-    },
+    size: 35,
+    fill: "#2d2d2d",
     speed: 5,
 };
 
 const user = {
     x: undefined, // will be mouseX
     y: undefined, // will be mouseY
-    size: 75,
-    fill: "#000000",
+    size: 25,
+    fill: ("#dcdada"),
 };
+
+const target = {
+    x: undefined, // will be mouseX
+    y: undefined, // will be mouseY
+    size: 55,
+    fill: ("transparent"),
+}
 
 /**
  * Create the canvas
@@ -42,14 +45,14 @@ function movePuck() {
     const d = dist(user.x, user.y, puck.x, puck.y);
     const overlap = (d < user.size/2 + puck.size/2);
 
+
     if (overlap) {
-        puck.fill = puck.fills.overlap;
         if (mouseX > puck.x){
             puck.speed = -masterSpeed;
         } else if (mouseX < puck.x) {
             puck.speed = masterSpeed;
         }
-        puck.x += puck.speed;
+        puck.x = constrain(puck.x + puck.speed, puck.size/2, width-puck.size/2);
         
         if (mouseY > puck.y) {
             puck.speed = -masterSpeed;
@@ -58,10 +61,8 @@ function movePuck() {
             puck.speed = masterSpeed;
             // console.log(puck.speed);
         }
-        puck.x += puck.speed;
-    } else {
-        puck.fill = puck.fills.noOverlap;
-    }
+        puck.y = constrain(puck.y + puck.speed, puck.size/2, height-puck.size/2);
+    } 
 
 }
 
@@ -69,7 +70,7 @@ function movePuck() {
  * Move the user circle, check for overlap, draw the two circles
  */
 function draw() {
-    background("#272323");
+    background("#dcdada");
 
     // Move user circle
     moveUser();
@@ -77,7 +78,9 @@ function draw() {
     // Draw the user and puck
     drawUser();
     drawPuck();
+    drawTarget();
     movePuck()
+
 }
 
 /**
@@ -96,6 +99,15 @@ function drawUser() {
     noStroke();
     fill(user.fill);
     ellipse(user.x, user.y, user.size);
+    pop();
+}
+
+function drawTarget() {
+    push();
+    fill(target.fill);
+    drawingContext.setLineDash([8, 4]); 
+    square(100, 100, target.size);
+
     pop();
 }
 
