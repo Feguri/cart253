@@ -2,7 +2,6 @@
  * Conditionals Challenge
  * Felipe Amorim & Felipe Paiva
  * 
- * 
  */
 
 "use strict";
@@ -10,27 +9,103 @@
 /**
  * The setup
 */
-let img = undefined;
+let masterSpeed = 5;
 
-async function preload() {
-    img = await loadImage("./assets/images/clown.png")
+const puck = {
+    x: 200,
+    y: 200,
+    size: 100,
+    fill: "#991e1e",
+    fills: {
+        noOverlap: "#991313", // red for no overlap
+        overlap: "#137e13" // green for overlap
+    },
+    speed: 5,
+};
+
+const user = {
+    x: undefined, // will be mouseX
+    y: undefined, // will be mouseY
+    size: 75,
+    fill: "#000000",
+};
+
+/**
+ * Create the canvas
+ */
+function setup() {
+    createCanvas(400, 400);
 }
 
-async function setup() {
-    createCanvas(640, 640);
+function movePuck() {
+    // Calculate distances between two circles centers
+    const d = dist(user.x, user.y, puck.x, puck.y);
+    const overlap = (d < user.size/2 + puck.size/2);
 
-    await preload();
+    if (overlap) {
+        puck.fill = puck.fills.overlap;
+        if (mouseX > puck.x){
+            puck.speed = -masterSpeed;
+        } else if (mouseX < puck.x) {
+            puck.speed = masterSpeed;
+        }
+        puck.x += puck.speed;
+        
+        if (mouseY > puck.y) {
+            puck.speed = -masterSpeed;
+            // console.log(puck.speed);
+        } else if (mouseY < puck.y) {
+            puck.speed = masterSpeed;
+            // console.log(puck.speed);
+        }
+        puck.x += puck.speed;
+    } else {
+        puck.fill = puck.fills.noOverlap;
+    }
+
 }
 
 /**
- * 
-*/
+ * Move the user circle, check for overlap, draw the two circles
+ */
 function draw() {
-    background(0);
+    background("#272323");
+
+    // Move user circle
+    moveUser();
+
+    // Draw the user and puck
+    drawUser();
+    drawPuck();
+    movePuck()
+}
+
+/**
+ * Sets the user position to the mouse position
+ */
+function moveUser() {
+    user.x = mouseX;
+    user.y = mouseY;
+}
+
+/**
+ * Displays the user circle
+ */
+function drawUser() {
     push();
-    fill(255, 0, 0);
-    stroke(0, 0, 0);
-    text("hello", 130, 130, 150, 150);
-    image(img, 300, 300);
+    noStroke();
+    fill(user.fill);
+    ellipse(user.x, user.y, user.size);
+    pop();
+}
+
+/**
+ * Displays the puck circle
+ */
+function drawPuck() {
+    push();
+    noStroke();
+    fill(puck.fill);
+    ellipse(puck.x, puck.y, puck.size);
     pop();
 }
