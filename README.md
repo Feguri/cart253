@@ -44,16 +44,17 @@ The purpose of this website is to show my work in this course, and display my ow
 ## Variable prototypes
 
 ### Prototype 1
+![Screenshot of prototype 1](./Images/Prototype1Screenshot.png)
 - [View online](https://feguri.github.io/cart253/Prototypes/Variables%20Prototype/index.html)
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Variables%20Prototype)
 
 ### Prototype 2
-
+![Screenshot of prototype 2](./Images/Prototype2Screenshot.png)
 - [View online](https://feguri.github.io/cart253/Prototypes/Variables%20Prototype%202/index.html)
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Variables%20Prototype%202)
 
 ### Prototype 3
-
+![Screenshot of prototype 3](./Images/Prototype3Screenshot.png)
 - [View online](https://feguri.github.io/cart253/Prototypes/Variables%20Prototype%203/)
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Variables%20Prototype%203)
 
