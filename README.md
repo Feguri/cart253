@@ -12,7 +12,12 @@ The purpose of this website is to show my work in this course, and display my ow
 - [Reflective Journal](./journal.md)
 
 
+## Challenges
 
+### Puck and target
+
+- [View online](https://feguri.github.io/cart253/Challenges/Conditionals%20Challenge/)
+- [View code](https://github.com/Feguri/cart253/tree/main/Challenges/Conditionals%20Challenge)
 ## Instructions prototypes
 
 ### Representational Prototype
@@ -48,6 +53,5 @@ The purpose of this website is to show my work in this course, and display my ow
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Variables%20Prototype%202)
 
 ### Prototype 3
-
 
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Variables%20Prototype%203)
