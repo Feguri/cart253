@@ -26,4 +26,8 @@ Finally, I made the really weird prototype. I wanted people to think: huh, that'
 
 ![Screenshot of my Really weird prototype](./Images/Really%20Weird%20prototype%20Screenshot.png)
 
-## Entry 3 -
+## Entry 3 - 2026/09/30
+
+The variables prototypes. One thing that I learned from this week was that I can't spend too much time and focus in one prototype (Prototype 1) and neglect the others. It is still hard for me to put equal effort into all of them. It sorta goes like this "Let's go! let's do it! I will do x, y, z, with this prototype and it will have this awesome feature." And by the 2nd and 3rd prototypes have exhausted all my creative energy. I am proud though, of what I managed to achieve with the first prototype. It took some studying with math stuff I hadn't heard of since high school to pull that off.
+
+I think a good plan is to *plan*. Plan how the three prototypes are going to look like and work *prior to* starting to work on them, so hopefully I will have a more structured and balanced workflow for them.
