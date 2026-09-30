@@ -55,5 +55,5 @@ The purpose of this website is to show my work in this course, and display my ow
 ### Prototype 3
 
 - [View online](https://feguri.github.io/cart253/Prototypes/Variables%20Prototype%203/)
-- [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Variables%20Prototype%202)
+- [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Variables%20Prototype%203)
 
