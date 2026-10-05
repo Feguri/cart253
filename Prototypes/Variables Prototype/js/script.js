@@ -23,6 +23,7 @@ function draw() {
     background(220);
     noStroke();
     fill('black');
+    
     // defines the varibles used in the program
     var origin = {x: 250, y:250};
     var interval = 20;
