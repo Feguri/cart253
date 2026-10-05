@@ -36,11 +36,13 @@ function setup() {
         size: 25,
         color: colorPalette[0],
     }
+
+    document.getElementById('seed').innerHTML = `${circleBall.speedX}/${circleBall.speedY}`;
 }
 
 function drawBall() {
     fill(circleBall.color);
-    stroke(0);
+    stroke(noStroke);
     // always starts in the center
     circle(circleBall.x, circleBall.y, circleBall.size);
 }
@@ -49,8 +51,7 @@ function changeColor(circleColorNum) {
     if (circleColorNum > 3) {
         currColorNum = 0;
     }
-    console.log(currColorNum);
-    circleBall.color = colorPalette[circleColorNum];
+    circleBall.color = colorPalette[currColorNum];
     currColorNum += 1;
 }
 

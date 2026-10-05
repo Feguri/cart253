@@ -19,10 +19,21 @@
 
   <!-- My script(s) -->
   <script src="js/script.js"></script>
+  <style>
+    .container {
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- HTML would go here if needed. -->
+  <p>Refresh for a new seed! Your seed is <span id="seed"></span></p>
+  <p>or make your seed: (between -20 and 20)</p> 
+  <div class="container">
+    <input id="inputX" type="number" min="-20" max="20">
+    <input id="inputY" type="number" min="-20" max="20">
+    <button id="seedBtn" type="submit">enter</button>
+  </div>
 </body>
 
 </html>
