@@ -55,9 +55,8 @@ function mouseClicked() {
     }
 }
 /**
- * 
+ * Draws the traffic lghts
 */
-
 function drawTrafficLight() {
     rectMode(CENTER);
     fill('darkgrey');
