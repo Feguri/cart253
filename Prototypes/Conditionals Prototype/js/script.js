@@ -67,7 +67,7 @@ function setup() {
 // function that actually draws the ball
 function drawBall() {
     fill(circleBall.color);
-    stroke(noStroke);
+    noSmooth();
     // always starts in the center
     circle(circleBall.x, circleBall.y, circleBall.size);
 }

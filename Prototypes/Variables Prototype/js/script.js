@@ -27,7 +27,6 @@ function draw() {
     // defines the varibles used in the program
     var origin = {x: 250, y:250};
     var interval = 20;
-    var fillerObject = square(origin.x, origin.y, 50);
 
     function getDistances(p1, p2) {
 
@@ -37,7 +36,7 @@ function draw() {
 
         const points = [];
 
-        // If the interval is larger than the distance, return the starting point (catching problems early!)
+        // If the interval is larger than the distance, return the starting point
         if (distance === 0 || interval > distance) {
             return { points: [{ x: p1.x, y: p1.y }] };
         }
