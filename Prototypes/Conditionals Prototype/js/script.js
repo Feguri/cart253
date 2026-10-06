@@ -31,13 +31,33 @@ function setup() {
         x: width / 2,
         y: height / 2,
         // speed is a random number between -10 and 10
-        speedX: Math.floor(Math.random() * 21) - 10,
-        speedY: Math.floor(Math.random() * 21) - 10,
+        speedX: Math.floor(Math.random() * 41) - 20,
+        speedY: Math.floor(Math.random() * 41) - 20,
         size: 25,
         color: colorPalette[0],
     }
 
-    document.getElementById('seed').innerHTML = `${circleBall.speedX}/${circleBall.speedY}`;
+    
+    const form = document.getElementById('form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        background('Black');
+        const formData = new FormData(event.target);
+        circleBall.speedX = Number(formData.get('inputX'));
+        circleBall.speedY = Number(formData.get('inputY'));
+        circleBall.x = width / 2;
+        circleBall.y = height / 2;
+        if (circleBall.speedX == 0 && circleBall.speedY == 0) {
+            document.getElementById('seed').innerHTML = `... a little stagnant: ${circleBall.speedX}/${circleBall.speedY}`;
+        } else {
+            document.getElementById('seed').innerHTML = `${circleBall.speedX}/${circleBall.speedY}`;
+        }
+    });
+    if (circleBall.speedX == 0 && circleBall.speedY == 0) {
+        document.getElementById('seed').innerHTML = `... a little stagnant: ${circleBall.speedX}/${circleBall.speedY}`;
+    } else {
+        document.getElementById('seed').innerHTML = `${circleBall.speedX}/${circleBall.speedY}`;
+    }
 }
 
 function drawBall() {
