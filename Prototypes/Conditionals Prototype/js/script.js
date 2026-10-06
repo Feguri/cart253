@@ -12,11 +12,12 @@
 /**
  * Setup function
 */
-// declares circleBall variable globally
+// declares circleBall variable globally, as well as colorPalette and currColorNum (for changing the colors within the palette)
 let circleBall;
 let colorPalette;
 let currColorNum = 0;
 
+// setup creates the canvas, sets the background to black, updates global var "color Palette" with an RBG list, updates the var "circleBall" with an object which contains the circle data, including its starting position, color, size, and speed.
 function setup() {
     createCanvas(500, 500);
     background('Black');
@@ -37,7 +38,7 @@ function setup() {
         color: colorPalette[0],
     }
 
-    
+    // creates a form variable to get the input data if the user prefers a manual seed
     const form = document.getElementById('form');
     form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -47,12 +48,15 @@ function setup() {
         circleBall.speedY = Number(formData.get('inputY'));
         circleBall.x = width / 2;
         circleBall.y = height / 2;
+
+        // if statement for a little surprise
         if (circleBall.speedX == 0 && circleBall.speedY == 0) {
             document.getElementById('seed').innerHTML = `... a little stagnant: ${circleBall.speedX}/${circleBall.speedY}`;
         } else {
             document.getElementById('seed').innerHTML = `${circleBall.speedX}/${circleBall.speedY}`;
         }
     });
+    // if statement for a little surprise ... if you got it randomly. I hate to repeat code, but I ran out of brain effort to make it cleaner
     if (circleBall.speedX == 0 && circleBall.speedY == 0) {
         document.getElementById('seed').innerHTML = `... a little stagnant: ${circleBall.speedX}/${circleBall.speedY}`;
     } else {
@@ -60,6 +64,7 @@ function setup() {
     }
 }
 
+// function that actually draws the ball
 function drawBall() {
     fill(circleBall.color);
     stroke(noStroke);
@@ -67,6 +72,7 @@ function drawBall() {
     circle(circleBall.x, circleBall.y, circleBall.size);
 }
 
+// changes the color of the circle if activated
 function changeColor(circleColorNum) {
     if (circleColorNum > 3) {
         currColorNum = 0;
@@ -75,6 +81,7 @@ function changeColor(circleColorNum) {
     currColorNum += 1;
 }
 
+// moves the ball and simply changes the x and y speeds if it hits the top, left, right or bottom of the canvas
 function moveBall() {
     // different x and y speeds cause the ball to move at any direction
     circleBall.x += circleBall.speedX;
