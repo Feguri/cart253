@@ -24,23 +24,23 @@ function setup() {
         red: {
             active: "RGB(255, 0, 0)",
             inactive: "RGB(74, 0, 0)",
-            size: 30,
+            size: 80,
             positionX: center,
-            positionY: 450,
+            positionY: 100,
         },
         yellow: {
             active: "RGB(255, 255, 0)",
             inactive: "RGB(74, 74, 0)",
-            size: 30,
+            size: 80,
             positionX: center,
-            positionY: 300,
+            positionY: height/2,
         },
         green: {
             active: "RGB(0, 255, 0)",
             inactive: "RGB(0, 74, 0)",
-            size: 30,
+            size: 80,
             positionX: center,
-            positionY: 150,
+            positionY: 410,
         },
     }
 }
@@ -63,6 +63,21 @@ function drawTrafficLight() {
     fill('darkgrey');
     rect(width/2, height/2, 200, height-50)
 }
+
+function drawLights() {
+    noStroke();
+    // red
+    fill(trafficLight.red.inactive);
+    circle(trafficLight.red.positionX, trafficLight.red.positionY, trafficLight.red.size);
+    // yellow
+    fill(trafficLight.yellow.inactive);
+    circle(trafficLight.yellow.positionX, trafficLight.yellow.positionY, trafficLight.yellow.size);
+    // green
+    fill(trafficLight.green.inactive);
+    circle(trafficLight.green.positionX, trafficLight.green.positionY, trafficLight.green.size);
+}
+
 function draw() {
     drawTrafficLight();
+    drawLights();
 }
