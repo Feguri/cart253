@@ -2,7 +2,7 @@
 
 Code by Pippin Barr. Challenge by Felipe Amorim Castelo Branco, Felipe S. Paiva and Konstantinos Christodoulakis
 
-[View this project online](https://github.com/artCBranco/cart253/pr/w5/do-not-move)
+[View this project online](https://feguri.github.io/cart253/Challenges/challenge5/)
 
 ## Description
 
@@ -10,7 +10,7 @@ A game where your score increases so long as you do nothing.
 
 ## Screenshot(s)
 
-> ![Events Challenge - The Only Move Is Not To Play](./assets/images/5-donotmove.gif)
+> ![Events Challenge - The Only Move Is Not To Play](./assets/5-donotmove.png)
 
 ## Attribution
 
