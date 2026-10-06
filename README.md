@@ -14,6 +14,10 @@ The purpose of this website is to show my work in this course, and display my ow
 
 ## Challenges
 
+### Challenge 5
+- [View online](https://feguri.github.io/cart253/Challenges/challenge5/)
+
+
 ### Puck and target
 
 - [View online](https://feguri.github.io/cart253/Challenges/Conditionals%20Challenge/)
