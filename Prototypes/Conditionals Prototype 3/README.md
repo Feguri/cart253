@@ -2,7 +2,7 @@
 
 Felipe Paiva
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+[View this project online](https://feguri.github.io/cart253/Prototypes/Conditionals%20Prototype%203/)
 
 ## Description
 
