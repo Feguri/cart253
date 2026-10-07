@@ -1,5 +1,5 @@
 /**
- * Title of Project
+ * Bouncing art
  * Felipe Paiva
  * 
  * Bouncing ball with edge detection!

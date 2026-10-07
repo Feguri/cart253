@@ -1,5 +1,5 @@
 /**
- * Guess the number
+ * Number stopper
  * Felipe Paiva
  * 
  * number stopping game: the user is asked to stop at the number when it reaches a specific number to score points and reach the next level
