@@ -62,3 +62,20 @@ The purpose of this website is to show my work in this course, and display my ow
 - [View online](https://feguri.github.io/cart253/Prototypes/Variables%20Prototype%203/)
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Variables%20Prototype%203)
 
+## Conditional Prototypes
+
+### Prototype 1
+![Screenshot of prototype 1](./Images/Conditional1.png)
+- [View online](https://feguri.github.io/cart253/Prototypes/Conditionals%20Prototype/)
+- [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Conditionals%20Prototype)
+
+### Prototype 2
+![Screenshot of prototype 2](./Images/Conditional2.png)
+- [View online](https://feguri.github.io/cart253/Prototypes/Conditionals%20Prototype%202/)
+- [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Conditionals%20Prototype%202)
+
+### Prototype 3
+![Screenshot of prototype 3](./Images/Conditional3.png)
+- [View online](https://feguri.github.io/cart253/Prototypes/Conditionals%20Prototype%203/)
+- [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Conditionals%20Prototype%203)
+
