@@ -1,6 +1,6 @@
-# TITLE OF PROJECT
+# Number Hitter
 
-AUTHOR NAME
+Felipe Paiva
 
 [View this project online](https://feguri.github.io/cart253/Prototypes/Conditionals%20Prototype%202/)
 
