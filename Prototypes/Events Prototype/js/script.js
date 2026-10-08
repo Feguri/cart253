@@ -22,7 +22,12 @@ function setup() {
     shapes = {
         circle: {
             width: 50,
-            color: "red",
+            redValue: 50,
+            greenValue: 0,
+            blueValue: 0,
+            get color() {
+                return `rgb(${this.redValue}, ${this.greenValue}, ${this.blueValue})`;
+            }
         },
         square: {
             width: 50,
@@ -40,9 +45,10 @@ function detectSpeed(previousSpeed) {
             let currentSpeed = mouseX - previousSpeed;
             let result = Math.round(Math.abs(currentSpeed))*2;
             console.log(result);
-            shapes.circle.width = result+20;
+            shapes.circle.width = result+10;
             previousX = mouseX;
             noStroke();
+            shapes.circle.redValue = result+10;
             fill(shapes.circle.color);
             circle(mouseX, mouseY, shapes.circle.width);
             previousX = mouseX;
