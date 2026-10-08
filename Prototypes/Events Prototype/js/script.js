@@ -11,8 +11,8 @@
  * Description of Setup
 */
 let shapes;
-let x = mouseX;
-let y = mouseY;
+let x = 0;
+let y = 0;
 let previousX = 0;
 function setup() {
     const width = window.innerWidth;
@@ -29,23 +29,26 @@ function setup() {
             color: "blue",
         },
     };
-    frameRate(160);
 }
 
 /**
  * Draw description
 */
 function detectSpeed(previousSpeed) {
-    if (mouseIsPressed) {
-        let currentSpeed = mouseX - previousSpeed;
-        let result = Math.round(Math.abs(currentSpeed));
-        console.log(result);
-        previousX = mouseX;
-
-        noStroke();
-        fill(shapes.circle.color);
-        circle(mouseX, mouseY, shapes.circle.width);
-    }
+    if (previousSpeed !== 0) {
+        if (mouseIsPressed) {
+            let currentSpeed = mouseX - previousSpeed;
+            let result = Math.round(Math.abs(currentSpeed))*2;
+            console.log(result);
+            shapes.circle.width = result+20;
+            previousX = mouseX;
+            noStroke();
+            fill(shapes.circle.color);
+            circle(mouseX, mouseY, shapes.circle.width);
+            previousX = mouseX;
+    
+        }
+    } previousX = mouseX;
 }
 function draw() {
     detectSpeed(previousX);
