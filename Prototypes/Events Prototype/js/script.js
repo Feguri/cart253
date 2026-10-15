@@ -27,7 +27,8 @@ function setup() {
             blueValue: 0,
             get color() {
                 return `rgb(${this.redValue}, ${this.greenValue}, ${this.blueValue})`;
-            }
+            },
+            scrollValue: 0,
         },
         square: {
             width: 50,
@@ -43,16 +44,16 @@ function detectSpeed(previousSpeed) {
     if (previousSpeed !== 0) {
         if (mouseIsPressed) {
             let currentSpeed = mouseX - previousSpeed;
-            let result = Math.round(Math.abs(currentSpeed))*2;
+            let result = Math.round(Math.abs(currentSpeed)) * 2;
             console.log(result);
-            shapes.circle.width = result+10;
+            shapes.circle.width = result + 10;
             previousX = mouseX;
             noStroke();
-            shapes.circle.redValue = result+10;
+            shapes.circle.redValue = result + 10;
             fill(shapes.circle.color);
             circle(mouseX, mouseY, shapes.circle.width);
             previousX = mouseX;
-    
+
         }
     } previousX = mouseX;
 }
