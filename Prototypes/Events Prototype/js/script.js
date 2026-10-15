@@ -12,6 +12,7 @@ let x = 0;
 let y = 0;
 let previousX = 0;
 let colorChangingNumber = 0;
+let hasClicked = false;
 
 /**
  * This set up function initializes with a width and height constants, which are the window's width and height, creating the canvas at the initial window size configuration for the largest possible canvas. Then, the shapes variables is updated with an object, it contains two shapes: a circle and a square. The circle has its own width (that will be changed later), red, green and blue values. I had to search how to return a string with inbedded variables inside an object, so I used a "get" functionality in JavaScript that lets me return the full rgb value for p5, which can CHANGE. That's the important part for this painter.
@@ -32,6 +33,10 @@ function setup() {
             },
         }
     };
+    fill('white');
+    textAlign(CENTER, CENTER);
+    textSize(18);
+    text("Welcome to Gesture Painter! Mouse Speed matters here! Mousewheel -> change colors, press 'c' to clear or 's' so save", width/2, height/2);
 }
 
 // changes the color of the painted object according to a number changed by mousewheel scrolling
@@ -50,6 +55,22 @@ function mouseWheel(event) {
         } else {
             shapes.circle.blueValue = deltaValue;
         }
+    }
+}
+// clears the board and saves the board upon pressing s
+function keyPressed() {
+    if (key === 'c' || key === 'C') {
+        background('black');
+    }
+    if (key === 's' || key === 'S') {
+        saveCanvas('myGesturePainterArt', 'png');
+    }
+}
+// clears the text once the user starts drawing
+function mousePressed() {
+    if (!hasClicked) {
+        background('black');
+        hasClicked = true;
     }
 }
 
