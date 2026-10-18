@@ -79,3 +79,8 @@ The purpose of this website is to show my work in this course, and display my ow
 - [View online](https://feguri.github.io/cart253/Prototypes/Conditionals%20Prototype%203/)
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Conditionals%20Prototype%203)
 
+## Event Prototypes
+
+![Screenshot of prototype 1](./Images/GesturePainter.png)
+- [View online](https://feguri.github.io/cart253/Prototypes/)
+- [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/)
