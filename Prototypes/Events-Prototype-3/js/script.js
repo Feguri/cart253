@@ -10,8 +10,14 @@
 /**
  * Description of Setup
 */
-const backgroundColor = "rgb(0, 0, 30)";
-const backgroundColor2 = "rgb(1, 27, 50)";
+const backgroundColor = [
+    "rgb(0, 0, 30)",  // starting screen 
+    "rgb(4, 55, 68)",  // lvl 1
+    "rgb(1, 27, 50)", // lvl 2
+    "rgb(23, 55, 78)",  // lvl 3
+    "rgb(28, 68, 51)",  // lvl 4
+    "rgb(87, 52, 95)",  // lvl 5
+];
 const textColor = "wheat";
 let currentLevel = 0;
 let animateDoor = false;
@@ -28,7 +34,7 @@ async function setup() {
     const width = window.innerWidth;
     const height = window.innerHeight;
     createCanvas(width, height);
-    background(backgroundColor);
+    background(backgroundColor[0]);
     fill('white');
     textAlign(CENTER, CENTER);
     rectMode(CENTER);
@@ -40,13 +46,13 @@ async function setup() {
 function updateLivesText() {
     livesText = "";
     for (let i = 0; i < lives; i++) {
-        livesText += " 🥐";
+        livesText += " 🩶";
     }
 }
 function mousePressed() {
     userStartAudio();
     if (currentLevel === 0) {
-        background(backgroundColor);
+        background(backgroundColor[0]);
         currentLevel++;
     }
 }
@@ -61,9 +67,43 @@ function loadLevel1() {
     drawLivesText();
 }
 function loadLevel2() {
-    drawDoor();
-    drawHint2();
+    if (!animateDoor) {
+        drawDoor();
+        drawHint2();
+    } else {
+        drawOpenDoor();
+    }
+    drawLivesText();
+}
 
+function loadLevel3() {
+    if (!animateDoor) {
+        drawDoor();
+        drawHint3();
+    } else {
+        drawOpenDoor();
+    }
+    drawLivesText();
+}
+
+function loadLevel4() {
+    if (!animateDoor) {
+        drawDoor();
+        drawHint4();
+    } else {
+        drawOpenDoor();
+    }
+    drawLivesText();
+}
+
+function loadLevel5() {
+    if (!animateDoor) {
+        drawDoor();
+        drawHint5();
+    } else {
+        drawOpenDoor();
+    }
+    drawLivesText();
 }
 
 function drawDoor() {
@@ -76,13 +116,14 @@ function drawDoor() {
 }
 
 function drawOpenDoor() {
-    background(backgroundColor);
+    background(backgroundColor[currentLevel]);
     noStroke()
 
     // draws the door frame
     fill(textColor);
     rect(width / 2, height / 2, 180, 320);
-    fill(backgroundColor);
+    // Will show the color of the next room
+    fill(backgroundColor[currentLevel+1]);
     rect(width / 2, height / 2, 160, 300);
 
     // draws the open door
@@ -103,7 +144,22 @@ function drawHint1() {
 
 function drawHint2() {
     fill(textColor);
-    text("I become a ladder if you stack me vertically", width / 2, height / 2 + 250);
+    text("I become a ladder if you stack me vertically.", width / 2, height / 2 + 250);
+}
+
+function drawHint3() {
+    fill(textColor);
+    text("Nothing.", width / 2, height / 2 + 250);
+}
+
+function drawHint4() {
+    fill(textColor);
+    text("You must find balance.", width / 2, height / 2 + 250);
+}
+
+function drawHint5() {
+    fill(textColor);
+    text("Without me, a bracket can never close. ", width / 2, height / 2 + 250);
 }
 
 function drawLivesText() {
@@ -112,28 +168,40 @@ function drawLivesText() {
 }
 
 function loadGameOver() {
-    background(backgroundColor);
+    background(backgroundColor[0]);
     fill(textColor);
     text("You starved and died.", width / 2, height / 2 + 250);
 }
 /**
  * Draw description
 */
-function keyPressed() {
-    if (key === "c" && currentLevel === 1) {
+function passLevel(key, level, answer) {
+    if (key === answer && currentLevel === level) {
         animateDoor = true;
         doorOpeningSound.play();
         setTimeout(() => {
             currentLevel++;
-            background(backgroundColor2);
+            console.log(currentLevel);
+            background(backgroundColor[currentLevel]);
+            animateDoor = false;
         }, 1000);
-
     } else {
         lives--;
-        background(backgroundColor);
+        background(backgroundColor[currentLevel]);
         updateLivesText();
     }
 }
+
+
+function keyPressed() {
+    // DON'T LOOK AT THE ANSWERS BEFORE PLAYING THE GAME
+    passLevel(key, 1, "c");
+    passLevel(key, 2, "h");
+    passLevel(key, 3, " ");
+    passLevel(key, 4, "=");
+    passLevel(key, 5, "[");
+}
+
 function draw() {
     // different game level management
     if (lives === 0) {
@@ -143,7 +211,17 @@ function draw() {
         loadLevel1();
     } else if (currentLevel === 2) {
         loadLevel2();
-    } else if (currentLevel === 100) {
+    } else if (currentLevel === 3) {
+        loadLevel3();
+    } else if (currentLevel === 4) {
+        loadLevel4();
+    } else if (currentLevel === 5) {
+        loadLevel5();
+    }
+    
+    
+    
+    else if (currentLevel === 100) {
         loadGameOver();
     }
 }
