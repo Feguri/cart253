@@ -15,14 +15,16 @@ const backgroundColor2 = "rgb(1, 27, 50)";
 const textColor = "wheat";
 let currentLevel = 0;
 let animateDoor = false;
-
+let lives;
+let livesText;
 let doorOpeningSound;
 let doorOpeningSound2;
 
 async function setup() {
     doorOpeningSound = await loadSound('assets/sounds/open-door1.mp3');
     doorOpeningSound2 = await loadSound('assets/sounds/open-door2.mp3');
-
+    lives = 10;
+    updateLivesText();
     const width = window.innerWidth;
     const height = window.innerHeight;
     createCanvas(width, height);
@@ -35,12 +37,18 @@ async function setup() {
     text("Press any key to start the game and enter your first room.", width / 2, height / 2 + 50);
 }
 
+function updateLivesText() {
+    livesText = "";
+    for (let i = 0; i < lives; i++) {
+        livesText += " 🥐";
+    }
+}
 function mousePressed() {
     userStartAudio();
     if (currentLevel === 0) {
+        background(backgroundColor);
         currentLevel++;
     }
-    background(backgroundColor);
 }
 
 function loadLevel1() {
@@ -50,6 +58,7 @@ function loadLevel1() {
     } else {
         drawOpenDoor();
     }
+    drawLivesText();
 }
 function loadLevel2() {
     drawDoor();
@@ -79,10 +88,10 @@ function drawOpenDoor() {
     // draws the open door
     fill(textColor);
     beginShape();
-    vertex(100, 50);
-    vertex(250, 120);
-    vertex(250, 350);
-    vertex(100, 280);
+    vertex(width / 2 + 90, height / 2 - 160);
+    vertex(width / 2 + 190, height / 2 - 110);
+    vertex(width / 2 + 190, height / 2 + 220);
+    vertex(width / 2 + 90, height / 2 + 160);
     endShape(CLOSE);
 
 }
@@ -96,6 +105,17 @@ function drawHint2() {
     fill(textColor);
     text("I become a ladder if you stack me vertically", width / 2, height / 2 + 250);
 }
+
+function drawLivesText() {
+    fill(textColor);
+    text(livesText, width / 2, height / 2 + 300);
+}
+
+function loadGameOver() {
+    background(backgroundColor);
+    fill(textColor);
+    text("You starved and died.", width / 2, height / 2 + 250);
+}
 /**
  * Draw description
 */
@@ -103,15 +123,27 @@ function keyPressed() {
     if (key === "c" && currentLevel === 1) {
         animateDoor = true;
         doorOpeningSound.play();
-        // currentLevel++;
-        // background(backgroundColor2);
+        setTimeout(() => {
+            currentLevel++;
+            background(backgroundColor2);
+        }, 1000);
+
+    } else {
+        lives--;
+        background(backgroundColor);
+        updateLivesText();
     }
 }
 function draw() {
     // different game level management
+    if (lives === 0) {
+        currentLevel = 100; //Game over
+    }
     if (currentLevel === 1) {
         loadLevel1();
     } else if (currentLevel === 2) {
         loadLevel2();
+    } else if (currentLevel === 100) {
+        loadGameOver();
     }
 }
