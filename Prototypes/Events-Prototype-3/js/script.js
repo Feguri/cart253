@@ -2,13 +2,13 @@
  * The input escape room
  * Felipe Paiva
  * 
- * A puzzle game where each room is locked behind a different type of input, and the player has to discover which one. One door opens with a double-click, another needs a long press (hold for 2 seconds), another a drag-and-drop, another a secret key sequence, another a specific mouse gesture like drawing a circle. The only hints are visual and sound cues you design.
+ * A puzzle game where each room is locked behind a different type of input, and the player has to discover which one. One door opens with a letter, another whith another. Hints: text below the doors.
  */
 
 "use strict";
 
 /**
- * Description of Setup
+ * Description of Setup: it sets up a few variables. Background color is a list with all background colors for the level. Then, there is text color, which is set to wheat (sinc most backgrounds are dark). Then, we set the current level to 0, animate door is false, used for the door animation, we set the lives and lives text for the user, and set the opening sound variables. Then we draw the canvas at the user's width and height of their screens, and already load their initial set of lives with the update lives function. We set the bg color, and the initial text settings as well as the initial welcome text.
 */
 const backgroundColor = [
     "rgb(0, 0, 30)",  // starting screen 
