@@ -81,6 +81,7 @@ The purpose of this website is to show my work in this course, and display my ow
 
 ## Event Prototypes
 
+### Prototype 1 - Gesture Painter
 ![Screenshot of prototype 1](./Images/GesturePainter.png)
 - [View online](https://feguri.github.io/cart253/Prototypes/)
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/)
