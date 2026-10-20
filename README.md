@@ -86,6 +86,10 @@ The purpose of this website is to show my work in this course, and display my ow
 - [View online](https://feguri.github.io/cart253/Prototypes/Events%20Prototype/)
 - [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Events%20Prototype)
 
+### Prototype 2 - The Needy Creature
+![Screenshot of prototype 1](./Images/GesturePainter.png)
+- [View online](https://feguri.github.io/cart253/Prototypes/Events%20Prototype/)
+- [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Events%20Prototype)
 
 ### Prototype 3 - Escape Rooms
 ![Screenshot of prototype 1](./Images//EscapeRoom.png)
