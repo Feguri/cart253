@@ -17,6 +17,9 @@ let catSad;
 let catSleepy;
 let catWorried;
 
+let catAngryState = false;
+let sleepNeeds = 0;
+
 const catSize = 250;
 const groundColor = "rgb(9, 40, 41)";
 const backgroundColor = "rgb(178, 191, 192)";
@@ -87,7 +90,22 @@ function keyPressed() {
 
 }
 function mousePressed() {
-    
+
+    // This is the bounding box of the cat, all of those variables define the dimensions of the cat
+    const half = catSize / 2;
+    const left = width / 2 - half;
+    const right = width / 2 + half;
+    const top = height / 2 - half;
+    const bottom = height / 2 + half;
+
+    // specific constraints for the mouse position to detect if it's inside the box
+    if (mouseX > left && mouseX < right && mouseY > top && mouseY < bottom) {
+        catAngryState = true;
+        setTimeout(() => {
+            catAngryState = false;
+        }, 2000);
+    }
+
 }
 
 function draw() {
@@ -98,7 +116,9 @@ function draw() {
         timeWithoutInput++;
         console.log(timeWithoutInput);
     }
-    if (timeWithoutInput > 10) {
+    if (catAngryState) {
+        drawAngryCat();
+    } else if (timeWithoutInput > 10) {
         drawSleepyCat();
     } else if (timeWithoutInput > 5) {
         drawAnnoyedCat();
