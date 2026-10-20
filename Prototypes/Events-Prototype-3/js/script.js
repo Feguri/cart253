@@ -18,6 +18,10 @@ const backgroundColor = [
     "rgb(28, 68, 51)",  // lvl 4
     "rgb(87, 52, 95)",  // lvl 5
 ];
+const hints = [
+    "It sounds like an ocean.", // lvl 1
+    
+];
 const textColor = "wheat";
 let currentLevel = 0;
 let animateDoor = false;
@@ -25,6 +29,7 @@ let lives;
 let livesText;
 let doorOpeningSound;
 let doorOpeningSound2;
+
 
 async function setup() {
     doorOpeningSound = await loadSound('assets/sounds/open-door1.mp3');
@@ -56,6 +61,19 @@ function mousePressed() {
         currentLevel++;
     }
 }
+function drawHint(textColor, hint, level) {
+    fill(textColor);
+    text(hint, width / 2, height / 2 + 250);
+}
+function loadLevel(level, hint) {
+    if (!animateDoor) {
+        drawDoor();
+        drawHint(textColor, hint, level);
+    } else {
+        drawOpenDoor();
+    }
+    drawLivesText();
+};
 
 function loadLevel1() {
     if (!animateDoor) {
@@ -159,7 +177,7 @@ function drawHint4() {
 
 function drawHint5() {
     fill(textColor);
-    text("Without me, a bracket can never close. ", width / 2, height / 2 + 250);
+    text("I am an odd number. Take away a single letter from my name, and I become even.", width / 2, height / 2 + 250);
 }
 
 function drawEscape() {
@@ -197,14 +215,14 @@ function passLevel(key, level, answer) {
     }
 }
 
-
+// checks for key presses in order to answer
 function keyPressed() {
     // DON'T LOOK AT THE ANSWERS BEFORE PLAYING THE GAME
     passLevel(key, 1, "c");
     passLevel(key, 2, "h");
     passLevel(key, 3, " ");
     passLevel(key, 4, "=");
-    passLevel(key, 5, "]");
+    passLevel(key, 5, "7");
 }
 
 function draw() {
