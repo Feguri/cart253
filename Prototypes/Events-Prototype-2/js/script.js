@@ -18,7 +18,9 @@ let catSleepy;
 let catWorried;
 
 const catSize = 250;
-const groundColor = "rgb(9, 40, 41)"
+const groundColor = "rgb(9, 40, 41)";
+const backgroundColor = "rgb(178, 191, 192)";
+
 const width = window.innerWidth;
 const height = window.innerHeight;
 
@@ -46,16 +48,60 @@ function drawGround() {
 */
 // draw normal face cat
 function drawNormalCat() {
+    background(backgroundColor);
     imageMode(CENTER);
     image(catNormal, width / 2, height / 2, catSize, catSize);
 }
+
+function drawAnnoyedCat() {
+    background(backgroundColor);
+    imageMode(CENTER);
+    image(catAnnoyed, width / 2, height / 2, catSize, catSize);
+}
+
+function drawAngryCat() {
+    background(backgroundColor);
+    imageMode(CENTER);
+    image(catAngry, width / 2, height / 2, catSize, catSize);
+}
+
+function drawSadCat() {
+    background(backgroundColor);
+    imageMode(CENTER);
+    image(catSad, width / 2, height / 2, catSize, catSize);
+}
+
+function drawSleepyCat() {
+    background(backgroundColor);
+    imageMode(CENTER);
+    image(catSleepy, width / 2, height / 2, catSize, catSize);
+}
+
+function drawWorriedCat() {
+    background(backgroundColor);
+    imageMode(CENTER);
+    image(catWorried, width / 2, height / 2, catSize, catSize);
+}
+
+function keyPressed() {
+
+}
+function mousePressed() {
+    
+}
+
 function draw() {
-    background(170);
+    background(backgroundColor);
     drawNormalCat();
-    drawGround();
     // modulo of 60, meaning it will only run once it encounters a multiple of 60 (once per second)
     if (frameCount % 60 === 0) {
         timeWithoutInput++;
         console.log(timeWithoutInput);
     }
+    if (timeWithoutInput > 10) {
+        drawSleepyCat();
+    } else if (timeWithoutInput > 5) {
+        drawAnnoyedCat();
+    }
+    drawGround();
 }
