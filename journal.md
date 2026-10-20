@@ -41,3 +41,13 @@ For the second conditional prototype, I originally had the idea of a "guess the 
 For the third prototype, I had the idea to make a functioning traffic light with the click of a mouse. It sounds like a very simple and easy idea, but coding it told otherwise. I was expecting it to be easy, but it surprisingly took many if statements, objects, and draw functions to arrive in a perfect, mouse-controlled street light. Idea to add to it later: some traffic that responds to the light in the street light, and you have to control it.
 
 Overall, I had a lot of fun making these prototypes, especially the first and last ones. I learned some things, and I'm slowly getting used to coding and thinking with my brain for once.
+
+## Entry 5 - 2026/10/06 - Event Prototypes
+
+This was a really fun one to make, all three of them! Since I had two weeks to work on them, I put a little more effort into doing something more enjoyable.
+
+I first started with the first Gesture Painter prototype. Making it was an interesting code exploration. I started by making the balls larger the faster you moved your mouse. Accomplishing that was the trickiest part, because it is not initially super obvious how you can do it. I eventually realized that I can use the previous x position value and see how huge that gap is to determine the speed. If the gap is small, the mouse is probably moving at a slow speed. But if there is a big gap, it probably means the mouse was moving so fast that the position had a gap. I used this to my advantage. Unfortunately, I only did it for the x value though, so if you move up and down this effect won't take place.
+
+Then, I moved on into coding the third prototype. This was the most fun. It took a while for me to figure out the sound ... apparently I had to use async and await in the setup function. Other than that, the trickiest part was coming up with vertex positions so I can draw an open door, and having it animate for a few seconds before going to the next level.
+
+Finally, for the second prototype, I illustrated a little cat character in illustrator as well as different expressions for him. In this prototype, I made him sleep for 30 seconds and be awake for 30 seconds as well. If you click on him, he gets annoyed. And if you do it while he is sleeping, his sleeping time will increase every time.
