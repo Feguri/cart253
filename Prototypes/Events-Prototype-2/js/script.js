@@ -2,7 +2,7 @@
  * The needy Creature
  * Felipe Paiva
  * 
- *A small character that reacts to things happening to the page, not just the cursor. It follows or avoids your mouse depending on its mood, falls asleep if you do nothing for 10 seconds, gets lonely and changes its look when you switch to another tab, and gets startled when you resize the window (its "room" just changed).
+ *A small character that reacts to things happening to the page, it is a cat. It sleeps every 30 seconds and you might disturb him if you click on him.
  */
 
 "use strict";
@@ -18,7 +18,8 @@ let catSleepy;
 let catWorried;
 
 let catAngryState = false;
-let sleepNeeds = 0;
+let sleeping = false;
+let sleepNeeds = 30;
 
 const catSize = 250;
 const groundColor = "rgb(9, 40, 41)";
@@ -78,6 +79,14 @@ function drawSleepyCat() {
     background(backgroundColor);
     imageMode(CENTER);
     image(catSleepy, width / 2, height / 2, catSize, catSize);
+    sleeping = true;
+    if (sleepNeeds === 0) {
+        timeWithoutInput = 0;
+        sleeping = false;
+        setTimeout(() => {
+            sleepNeeds = 30;
+        }, 30000);
+    }
 }
 
 function drawWorriedCat() {
@@ -100,9 +109,19 @@ function mousePressed() {
 
     // specific constraints for the mouse position to detect if it's inside the box
     if (mouseX > left && mouseX < right && mouseY > top && mouseY < bottom) {
+
+        // I can probably improve this. it is a little bit confusing. The purpose of "not sleeping" variable is to basically to prevent the sleeping needs count to still go down even after you woke him up with a click.
         catAngryState = true;
+        let notSleeping = false;
+        if (sleeping) {
+            sleeping = false;
+            notSleeping = true;
+        }
         setTimeout(() => {
             catAngryState = false;
+            if (notSleeping) {
+                sleeping = true;
+            }
         }, 2000);
     }
 
@@ -114,7 +133,10 @@ function draw() {
     // modulo of 60, meaning it will only run once it encounters a multiple of 60 (once per second)
     if (frameCount % 60 === 0) {
         timeWithoutInput++;
-        console.log(timeWithoutInput);
+        console.log(sleepNeeds);
+        if (sleeping) {
+            sleepNeeds--;
+        }
     }
     if (catAngryState) {
         drawAngryCat();
