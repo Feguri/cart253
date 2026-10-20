@@ -90,4 +90,4 @@ The purpose of this website is to show my work in this course, and display my ow
 ### Prototype 3 - Escape Rooms
 ![Screenshot of prototype 1](./Images//EscapeRoom.png)
 - [View online](http://127.0.0.1:5501/Prototypes/Events-Prototype-3/index.html)
-- [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/)
+- [View code](https://github.com/Feguri/cart253/tree/main/Prototypes/Events-Prototype-3)

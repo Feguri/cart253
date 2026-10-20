@@ -39,7 +39,7 @@ async function setup() {
     textAlign(CENTER, CENTER);
     rectMode(CENTER);
     textSize(18);
-    text("Welcome to input escape room. Find the right keyboard input to unlock the next room.gg ", width / 2, height / 2);
+    text("Welcome to input escape room. Find the right keyboard input to unlock the next room.", width / 2, height / 2);
     text("Press your mouse to start the game and enter your first room.", width / 2, height / 2 + 50);
 }
 
