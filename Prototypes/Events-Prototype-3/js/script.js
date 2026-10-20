@@ -20,7 +20,7 @@ const backgroundColor = [
 ];
 const hints = [
     "It sounds like an ocean.", // lvl 1
-    
+
 ];
 const textColor = "wheat";
 let currentLevel = 0;
@@ -30,7 +30,7 @@ let livesText;
 let doorOpeningSound;
 let doorOpeningSound2;
 
-
+// setup loads the sounds, sets the lives, and updates the live texts. it creates the initial tutorial screen before you try to escape your first room.
 async function setup() {
     doorOpeningSound = await loadSound('assets/sounds/open-door1.mp3');
     doorOpeningSound2 = await loadSound('assets/sounds/open-door2.mp3');
@@ -48,12 +48,14 @@ async function setup() {
     text("Press your mouse to start the game and enter your first room.", width / 2, height / 2 + 50);
 }
 
+// updates the lives of the cat (in text only)
 function updateLivesText() {
     livesText = "";
     for (let i = 0; i < lives; i++) {
         livesText += " 🩶";
     }
 }
+// if mouse is pressed, it starts the audio for the doors and starts the first level.
 function mousePressed() {
     userStartAudio();
     if (currentLevel === 0) {
@@ -61,10 +63,13 @@ function mousePressed() {
         currentLevel++;
     }
 }
+// in progrress: I will move all hints to a single function
 function drawHint(textColor, hint, level) {
     fill(textColor);
     text(hint, width / 2, height / 2 + 250);
 }
+
+// in progress: I will move all load levels into a single function
 function loadLevel(level, hint) {
     if (!animateDoor) {
         drawDoor();
@@ -124,6 +129,7 @@ function loadLevel5() {
     drawLivesText();
 }
 
+// draws the door wiht a rect, and a dor handle with a circle
 function drawDoor() {
     noStroke()
     fill(textColor);
@@ -133,6 +139,7 @@ function drawDoor() {
     circle(width / 2 - 60, height / 2 + 15, 20)
 }
 
+// draws an open door! it uses a vertex to draw the "open" door illusion
 function drawOpenDoor() {
     background(backgroundColor[currentLevel-1]);
     noStroke()
@@ -195,7 +202,7 @@ function loadGameOver() {
     text("You starved and died.", width / 2, height / 2);
 }
 /**
- * Draw description
+ * pass level function runs every time the user presses a key. If it's the wrong one, they will lose a life
 */
 function passLevel(key, level, answer) {
     if (currentLevel === level) {
@@ -218,6 +225,7 @@ function passLevel(key, level, answer) {
 // checks for key presses in order to answer
 function keyPressed() {
     // DON'T LOOK AT THE ANSWERS BEFORE PLAYING THE GAME
+
     passLevel(key, 1, "c");
     passLevel(key, 2, "h");
     passLevel(key, 3, " ");
@@ -225,11 +233,13 @@ function keyPressed() {
     passLevel(key, 5, "7");
 }
 
+// draw manages level drawing based on the current level variable.
 function draw() {
     // different game level management
     if (lives === 0) {
         currentLevel = 100; //Game over
     }
+
     if (currentLevel === 1) {
         loadLevel1();
     } else if (currentLevel === 2) {

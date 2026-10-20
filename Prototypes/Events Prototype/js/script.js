@@ -75,7 +75,7 @@ function mousePressed() {
 }
 
 /**
- * Draw description
+ * Detects the speed of the mouse according to x and w positions based on current and previous speeds
 */
 function detectSpeed(previousSpeed) {
     if (previousSpeed !== 0) {
@@ -94,6 +94,7 @@ function detectSpeed(previousSpeed) {
         }
     } previousX = mouseX;
 }
+// draw always runs the detect speed function.
 function draw() {
     detectSpeed(previousX);
 }

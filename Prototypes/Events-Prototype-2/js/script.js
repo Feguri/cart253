@@ -50,31 +50,32 @@ function drawGround() {
 /**
  * Draw description
 */
-// draw normal face cat
+// draws normal face cat
 function drawNormalCat() {
     background(backgroundColor);
     imageMode(CENTER);
     image(catNormal, width / 2, height / 2, catSize, catSize);
 }
-
+// draws normal annoyed cat
 function drawAnnoyedCat() {
     background(backgroundColor);
     imageMode(CENTER);
     image(catAnnoyed, width / 2, height / 2, catSize, catSize);
 }
 
+// draws angry cat
 function drawAngryCat() {
     background(backgroundColor);
     imageMode(CENTER);
     image(catAngry, width / 2, height / 2, catSize, catSize);
 }
-
+// draws sad cat
 function drawSadCat() {
     background(backgroundColor);
     imageMode(CENTER);
     image(catSad, width / 2, height / 2, catSize, catSize);
 }
-
+// draws sleepy cat (a little more complex because it needs to keep track of its sleep needs)
 function drawSleepyCat() {
     background(backgroundColor);
     imageMode(CENTER);
@@ -88,7 +89,7 @@ function drawSleepyCat() {
         }, 30000);
     }
 }
-
+// draws worried cat
 function drawWorriedCat() {
     background(backgroundColor);
     imageMode(CENTER);
@@ -98,6 +99,7 @@ function drawWorriedCat() {
 function keyPressed() {
 
 }
+// detects if mouse is pressed
 function mousePressed() {
 
     // This is the bounding box of the cat, all of those variables define the dimensions of the cat
@@ -126,7 +128,7 @@ function mousePressed() {
     }
 
 }
-
+// draws background, cats, and keeps track of the different states for the cat, as well as the sleep needs with a second by second counter.
 function draw() {
     background(backgroundColor);
     drawNormalCat();
