@@ -53,4 +53,9 @@ function draw() {
     background(170);
     drawNormalCat();
     drawGround();
+    // modulo of 60, meaning it will only run once it encounters a multiple of 60 (once per second)
+    if (frameCount % 60 === 0) {
+        timeWithoutInput++;
+        console.log(timeWithoutInput);
+    }
 }
