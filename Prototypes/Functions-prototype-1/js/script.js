@@ -9,13 +9,6 @@
 const formatter = new Intl.NumberFormat('en-US');
 let backgroundColor;
 
-function drawStar() {
-    const star = generateRandomStar();
-    console.log(star.age);
-    fill(`rgb(${star.rgb[0]}, ${star.rgb[1]}, ${star.rgb[2]})`);
-    circle(width / 2, height / 2, star.size);
-}
-
 function generateRandomStar() {
     const starTemplates = [
         { colorName: "red", rgb: [255, 69, 0] },
@@ -35,7 +28,16 @@ function generateRandomStar() {
         rgb: chosenTemplate.rgb,
         size: size,
         age: age,
+        positionX: window.innerWidth / 2,
+        positionY: window.innerHeight / 2,
+        height: size,
+        width: size,
     };
+}
+let star = generateRandomStar();
+function drawStar() {
+    fill(`rgb(${star.rgb[0]}, ${star.rgb[1]}, ${star.rgb[2]})`);
+    circle(star.positionX, star.positionY, star.size);
 }
 
 
@@ -44,18 +46,35 @@ function generateRandomStar() {
 */
 function setup() {
     backgroundColor = "rgb(2, 0, 10)";
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    createCanvas(width, height);
+    const canvasWidth = window.innerWidth;
+    const canvasHeight = window.innerHeight;
+    createCanvas(canvasWidth, canvasHeight);
     background(backgroundColor);
     rectMode(CENTER);
-    drawStar();
 }
 
+function isMouseOver(x, y, w, h) {
+    return (
+        mouseX >= x &&    
+        mouseX <= x + w &&
+        mouseY >= y &&    
+        mouseY <= y + h   
+    );
+}
 
 /**
  * Draw description
 */
+function drawStatsBox(offsetX) {
+    fill('white');
+    noStroke();
+    rect(mouseX + offsetX, mouseY, 100, 300);
+    background(backgroundColor);
+}
 function draw() {
-
+    drawStar();
+    if (isMouseOver(star.positionX, star.positionY, star.width, star.height)) {
+        drawStar();
+        drawStatsBox(star.width);
+    };
 }
