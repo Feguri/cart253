@@ -9,7 +9,7 @@
 const formatter = new Intl.NumberFormat('en-US');
 let backgroundColor;
 let pixelFont;
-let numOfPlanets = Math.floor(Math.random() * 11);
+let maxNumOfPlanets = Math.floor(Math.random() * 5);
 let planets = [];
 
 function capitalize(str) {
@@ -54,6 +54,20 @@ function drawStar() {
     circle(star.positionX, star.positionY, star.size);
 }
 
+function drawPlanets() {
+    let distanceFromStar = 200;
+    function drawPlanet(planet) {
+        fill(`rgb(${planet.rgb[0]}, ${planet.rgb[1]}, ${planet.rgb[2]})`);
+        noStroke();
+
+        circle(width/2 - distanceFromStar, height/2, planet.size);
+    }
+    for (let i = 0; i < maxNumOfPlanets; i++) {
+        drawPlanet(planets[i]);
+        distanceFromStar += 70;
+    }
+}
+
 function generatePlanets() {
     const planetTemplates = [
         // Rocky planets
@@ -87,11 +101,25 @@ function generatePlanets() {
         { planetType: "mini-neptune", geology: "gas", rgb: [130, 170, 200], temperatureRange: [-100, 300], sizeRange: [24, 45], tidalLock: false },
         { planetType: "super-earth", geology: "rocky", rgb: [95, 120, 80], temperatureRange: [-50, 80], sizeRange: [20, 35], tidalLock: false },
     ];
-    for (let i = 0; i < numOfPlanets; i++) {
-        planets.push();
+    for (let i = 0; i < maxNumOfPlanets; i++) {
+        const randomIndex = Math.floor(Math.random() * planetTemplates.length);
+        const chosenTemplate = planetTemplates[randomIndex];
+        
+        const minSize = chosenTemplate.sizeRange[0];
+        const maxSize = chosenTemplate.sizeRange[1];
+        const planetSize = Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize;
+        chosenTemplate["size"] = planetSize
+
+        const minTemp = chosenTemplate.temperatureRange[0];
+        const maxTemp = chosenTemplate.temperatureRange[1];
+        chosenTemplate["temperature"] = Math.floor(Math.random() * (maxTemp - minTemp + 1)) + minTemp;
+
+        planets.push(chosenTemplate);
     }
     console.log(planets);
 };
+
+generatePlanets();
 /**
  * Setup Description
 */
@@ -119,7 +147,7 @@ function isMouseOver(x, y, w, h) {
 
 // main mechanic of drawstatsbox is to display a text background with text information in it, with dynamic position during the page.
 
-function drawStatsBox(offsetX, boxSizeX, boxSizeY, fontSize) {
+function drawStatsBoxStar(offsetX, boxSizeX, boxSizeY, fontSize) {
     textSize(fontSize);
     fill('white');
     noStroke();
@@ -152,7 +180,13 @@ function drawStatsBox(offsetX, boxSizeX, boxSizeY, fontSize) {
 function draw() {
     background(backgroundColor);
     drawStar();
+    drawPlanets();
     if (isMouseOver(star.positionX - star.width/2, star.positionY - star.height/2, star.width, star.height)) {
-        drawStatsBox(150, 230, 240, 16);
+        drawStatsBoxStar(150, 230, 240, 16);
     };
+    // for (let i = 0; i < maxNumOfPlanets; i++) {
+    //     if (isMouseOver(planets[i])) {
+
+    //     }
+    // }
 }
