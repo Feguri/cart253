@@ -9,6 +9,12 @@
 const formatter = new Intl.NumberFormat('en-US');
 let backgroundColor;
 
+let pixelFont;
+
+function preload() {
+    pixelFont = loadFont('assets/fonts/pixelated.ttf');
+}
+
 function generateRandomStar() {
     const starTemplates = [
         { colorName: "red", rgb: [255, 69, 0] },
@@ -65,16 +71,26 @@ function isMouseOver(x, y, w, h) {
 /**
  * Draw description
 */
-function drawStatsBox(offsetX) {
+
+// main mechanic of drawstatsbox is to display a text background with text information in it, with dynamic position during the page.
+
+function drawStatsBox(offsetX, boxSizeX, boxSizeY, fontSize) {
+    textSize(fontSize);
     fill('white');
     noStroke();
-    rect(mouseX + offsetX, mouseY, 100, 300);
-    background(backgroundColor);
+    rect(mouseX + offsetX, mouseY, boxSizeX, boxSizeY);
+    fill('black');
+    rect(mouseX + offsetX, mouseY, boxSizeX-10, boxSizeY-10);
+    fill('white');
+    textFont(pixelFont); 
+    text("Star Age:", mouseX + offsetX + 30, mouseY - 40, 200, 20)
+    text(String(star.age) + " years", mouseX + offsetX + 30, mouseY);
 }
+
 function draw() {
+    background(backgroundColor);
     drawStar();
-    if (isMouseOver(star.positionX, star.positionY, star.width, star.height)) {
-        drawStar();
-        drawStatsBox(star.width);
+    if (isMouseOver(star.positionX - star.width/2, star.positionY - star.height/2, star.width, star.height)) {
+        drawStatsBox(150, 180, 220, 16);
     };
 }
