@@ -59,6 +59,11 @@ const fortuneObjects = {
             galvazprinx: 100,
             "gluon array": 200,
             "sparker grind": 156,
+        },
+        ultraRarePowers: {
+            "atom bomb": 123049,
+            "ant army": 1034,
+            "crystal bomb": 670,
         }
     },
     order: {
@@ -84,6 +89,40 @@ const fortuneObjects = {
             "ultimum",
             "glass'o corp.",
             "sp4ti4l 4n0m4ly",
+        ]
+    },
+    class: {
+        commonClasses: [
+            "technologist",
+            "spiritualist",
+            "farmer",
+            "explorer",
+            "settler",
+            "scientist",
+            "fugitive",
+            "funeralist",
+            "healer",
+            "warrior",
+            "soldier",
+            "criminal"
+        ],
+        rareClasses: [
+            "office clerk",
+            "medic",
+            "governor",
+            "ally",
+            "leader",
+            "landlord",
+            "conquistador",
+            "mastermind",
+            "specialist",
+            "cyborg"
+        ],
+        UltraRareClasses: [
+            "monopolist",
+            "agent",
+            "world leader",
+            "star fighter"
         ]
     }
 };
@@ -128,9 +167,52 @@ function preload() {
     pixelFont = loadFont('assets/fonts/pixelated.ttf');
 }
 
+function getFortunes() {
+    // generates numbers between 1 and 1000 to get rarity
+    const fortuneNum1 = Math.floor(Math.random() * 1000) + 1;
+    const fortuneNum2 = Math.floor(Math.random() * 1000) + 1;
+    const fortuneNum3 = Math.floor(Math.random() * 1000) + 1;
+    const fortuneNum4 = Math.floor(Math.random() * 1000) + 1;
+    const fortuneList = [fortuneNum1, fortuneNum2, fortuneNum3, fortuneNum4];
+
+    let chosenStone;
+    let chosenPower;
+    let chosenOrder;
+    let chosenClass;
+
+    for (let i = 0; i < fortuneList.length; i++) {
+        if (fortuneList[i] > 200) {
+
+            let stonesArr = fortuneObjects.magicStones.commonStones
+            let arrLength = stonesArr.length;
+            
+            chosenStone = [stonesArr[Math.floor(Math.random() * arrLength)], " common"];
+
+        } 
+        else if (fortuneList[i] > 20) {
+
+            let stonesArr = fortuneObjects.magicStones.rareStones;
+            let arrLength = stonesArr.length;
+
+            chosenStone = stonesArr[Math.floor(Math.random() * arrLength)];
+
+        } else if (fortuneList[i] > 2) {
+
+            let stonesArr = fortuneObjects.magicStones.ultraRareStones;
+            let arrLength = stonesArr.length;
+
+            chosenStone = stonesArr[Math.floor(Math.random() * arrLength)];
+
+        }
+        
+    }
+    return chosenStone[0] + chosenStone[1];
+}
 function setup() {
     rectMode(CENTER);
     createCanvas(canvasWidth, canvasHeight);
+    let chosenFortunes = getFortunes();
+    console.log(chosenFortunes);
 }
 
 
