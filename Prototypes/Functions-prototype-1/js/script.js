@@ -9,7 +9,7 @@
 const formatter = new Intl.NumberFormat('en-US');
 let backgroundColor;
 let pixelFont;
-let maxNumOfPlanets = Math.floor(Math.random() * 5);
+let maxNumOfPlanets = Math.floor(Math.random() * 8);
 let planets = [];
 
 function capitalize(str) {
@@ -71,7 +71,7 @@ function generatePlanets() {
         // Rocky planets
         { planetType: "desert", geology: "rocky", rgb: [155, 40, 0], temperatureRange: [-250, 500], sizeRange: [5, 20], tidalLock: false, lifeProbability: 1 },
         { planetType: "lush", geology: "rocky", rgb: [55, 140, 0], temperatureRange: [-20, 50], sizeRange: [10, 20], tidalLock: false, lifeProbability: 100 },
-        { planetType: "ice", geology: "rocky", rgb: [200, 230, 255], temperatureRange: [-250, 0], sizeRange: [8, 23], tidalLock: false },
+        { planetType: "ice", geology: "rocky", rgb: [200, 230, 255], temperatureRange: [-250, 0], sizeRange: [8, 23], tidalLock: false, lifeProbability: 1},
         { planetType: "ocean", geology: "rocky", rgb: [20, 80, 170], temperatureRange: [-5, 60], sizeRange: [10, 25], tidalLock: false, lifeProbability: 35 },
         { planetType: "volcanic", geology: "rocky", rgb: [90, 20, 10], temperatureRange: [150, 900], sizeRange: [4, 18], tidalLock: false },
         { planetType: "barren", geology: "rocky", rgb: [120, 115, 110], temperatureRange: [-200, 400], sizeRange: [2, 12], tidalLock: false },
@@ -97,9 +97,10 @@ function generatePlanets() {
 
         // subgiants
         { planetType: "mini-neptune", geology: "gas", rgb: [130, 170, 200], temperatureRange: [-100, 300], sizeRange: [24, 45], tidalLock: false },
-        { planetType: "super-earth", geology: "rocky", rgb: [95, 120, 80], temperatureRange: [-50, 80], sizeRange: [20, 35], tidalLock: false },
+        { planetType: "super-earth", geology: "rocky", rgb: [95, 120, 80], temperatureRange: [-50, 80], sizeRange: [20, 35], tidalLock: false, lifeProbability: 3 },
     ];
     let planetDistanceFromStar = 150;
+    
     for (let i = 0; i < maxNumOfPlanets; i++) {
         const randomIndex = Math.floor(Math.random() * planetTemplates.length);
         const chosenTemplate = planetTemplates[randomIndex];
