@@ -2,6 +2,7 @@
  * Boingo
  * Pippin Barr
  *
+ * Made by Felipe Paiva, Felipe A., konstantinos christodoulakis
  * A ball that bounces around on the canvas
  */
 
@@ -18,7 +19,7 @@ function setup() {
     // Create the canvas
     createCanvas(400, 400);
     // Create the ball
-    
+
     balls[0] = createBall();
     balls[1] = createBall();
 }
@@ -30,17 +31,18 @@ function createBall() {
     // Create a ball object with appropriate properties
     const newBall = {
         // Position and dimensions
-        x: 200,
-        y: 200,
+        x: mouseX,
+        y: mouseY,
         size: 20,
         // Colour
-        fill: "#000000",
+        fill: `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`,
         // Movement
         velocity: {
-            x: random(-5, 5),
-            y: random(-5, 5)
+            x: map(pmouseX, 0, 400, -5, 5),
+            y: map(pmouseY, 0, 400, -5, 5),
         }
     };
+    console.log(newBall.fill);
     return newBall;
 }
 
@@ -54,7 +56,6 @@ function draw() {
         moveBall(ball);
         bounceBall(ball);
         drawBall(ball);
-
     }
 }
 
