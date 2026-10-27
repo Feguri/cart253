@@ -69,21 +69,21 @@ function drawPlanets() {
 function generatePlanets() {
     const planetTemplates = [
         // Rocky planets
-        { planetType: "desert", geology: "rocky", rgb: [155, 40, 0], temperatureRange: [-250, 500], sizeRange: [5, 20], tidalLock: false, lifeProbability: 1 },
+        { planetType: "desert", geology: "rocky", rgb: [155, 40, 0], temperatureRange: [-250, 500], sizeRange: [9, 20], tidalLock: false, lifeProbability: 1 },
         { planetType: "lush", geology: "rocky", rgb: [55, 140, 0], temperatureRange: [-20, 50], sizeRange: [10, 20], tidalLock: false, lifeProbability: 100 },
         { planetType: "ice", geology: "rocky", rgb: [200, 230, 255], temperatureRange: [-250, 0], sizeRange: [8, 23], tidalLock: false, lifeProbability: 1},
         { planetType: "ocean", geology: "rocky", rgb: [20, 80, 170], temperatureRange: [-5, 60], sizeRange: [10, 25], tidalLock: false, lifeProbability: 35 },
-        { planetType: "volcanic", geology: "rocky", rgb: [90, 20, 10], temperatureRange: [150, 900], sizeRange: [4, 18], tidalLock: false },
-        { planetType: "barren", geology: "rocky", rgb: [120, 115, 110], temperatureRange: [-200, 400], sizeRange: [2, 12], tidalLock: false },
-        { planetType: "toxic", geology: "rocky", rgb: [150, 160, 40], temperatureRange: [50, 300], sizeRange: [6, 18], tidalLock: false },
+        { planetType: "volcanic", geology: "rocky", rgb: [90, 20, 10], temperatureRange: [150, 900], sizeRange: [10, 28], tidalLock: false },
+        { planetType: "barren", geology: "rocky", rgb: [120, 115, 110], temperatureRange: [-200, 400], sizeRange: [6, 22], tidalLock: false },
+        { planetType: "toxic", geology: "rocky", rgb: [150, 160, 40], temperatureRange: [50, 300], sizeRange: [6, 28], tidalLock: false },
         { planetType: "tundra", geology: "rocky", rgb: [140, 165, 150], temperatureRange: [-80, 5], sizeRange: [8, 20], tidalLock: false, lifeProbability: 2 },
         { planetType: "swamp", geology: "rocky", rgb: [70, 90, 40], temperatureRange: [15, 45], sizeRange: [8, 18], tidalLock: false, lifeProbability: 5 },
-        { planetType: "carbon", geology: "rocky", rgb: [30, 28, 35], temperatureRange: [-50, 350], sizeRange: [5, 20], tidalLock: false },
-        { planetType: "iron", geology: "metallic", rgb: [140, 90, 70], temperatureRange: [-100, 600], sizeRange: [3, 15], tidalLock: false },
+        { planetType: "carbon", geology: "rocky", rgb: [30, 28, 35], temperatureRange: [-50, 350], sizeRange: [7, 20], tidalLock: false },
+        { planetType: "iron", geology: "metallic", rgb: [140, 90, 70], temperatureRange: [-100, 600], sizeRange: [7, 15], tidalLock: false },
 
         // variants with tidal locking
         { planetType: "eyeball", geology: "rocky", rgb: [110, 150, 190], temperatureRange: [-150, 80], sizeRange: [6, 20], tidalLock: true },
-        { planetType: "lava", geology: "molten", rgb: [220, 70, 0], temperatureRange: [700, 2500], sizeRange: [4, 16], tidalLock: true },
+        { planetType: "lava", geology: "molten", rgb: [220, 70, 0], temperatureRange: [700, 2500], sizeRange: [6, 16], tidalLock: true },
 
         // gas giants
         { planetType: "jovian", geology: "gas", rgb: [200, 160, 120], temperatureRange: [-200, -100], sizeRange: [80, 200], tidalLock: false, lifeProbability: 1 },
