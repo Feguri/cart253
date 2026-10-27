@@ -13,7 +13,6 @@ const r = Math.floor(Math.random() * (100 - 20 + 1)) + 20;
 const g = Math.floor(Math.random() * (100 - 20 + 1)) + 20;
 const b = Math.floor(Math.random() * (100 - 20 + 1)) + 20;
 const backgroundColor = `rgb(${Math.floor(r - r / 2)}, ${Math.floor(g - g/2)}, ${Math.floor (b - b/2)})`;
-console.log(r - r / 2);
 const cardBackgroundColor = `rgb(${r}, ${g}, ${b})`;
 const textColor = `rgb(246, 237, 232)`;
 const strokeColor = `rgb(246, 237, 232)`;
@@ -122,7 +121,7 @@ const fortuneObjects = {
             "monopolist",
             "agent",
             "world leader",
-            "star fighter"
+            "star fighter",
         ]
     }
 };
@@ -180,39 +179,43 @@ function getFortunes() {
     let chosenOrder;
     let chosenClass;
 
+    function returnObjectFromArray(object, rarity) {
+        let arrLength = object.length;
+        let chosenObject = object[Math.floor(Math.random() * arrLength)];
+        return [chosenObject, rarity];
+    }
+
     for (let i = 0; i < fortuneList.length; i++) {
         if (fortuneList[i] > 200) {
-
-            let stonesArr = fortuneObjects.magicStones.commonStones
-            let arrLength = stonesArr.length;
+            chosenStone = returnObjectFromArray(fortuneObjects.magicStones.commonStones, " common");
             
-            chosenStone = [stonesArr[Math.floor(Math.random() * arrLength)], " common"];
-
+            chosenOrder = returnObjectFromArray(fortuneObjects.order.commonOrders, " common");
         } 
         else if (fortuneList[i] > 20) {
+            chosenStone = returnObjectFromArray(fortuneObjects.magicStones.rareStones, " rare");
 
-            let stonesArr = fortuneObjects.magicStones.rareStones;
-            let arrLength = stonesArr.length;
-
-            chosenStone = stonesArr[Math.floor(Math.random() * arrLength)];
-
-        } else if (fortuneList[i] > 2) {
-
-            let stonesArr = fortuneObjects.magicStones.ultraRareStones;
-            let arrLength = stonesArr.length;
-
-            chosenStone = stonesArr[Math.floor(Math.random() * arrLength)];
-
+            chosenOrder = returnObjectFromArray(fortuneObjects.order.ra, " rare");
         }
-        
+        else if (fortuneList[i] > 2) {
+            chosenStone = returnObjectFromArray(fortuneObjects.magicStones.ultraRareStones, " ultra rare");
+        }
+        else {
+            chosenStone = returnObjectFromArray(fortuneObjects.magicStones.impossible, " impossible??!");
+        }
+
     }
-    return chosenStone[0] + chosenStone[1];
+    let chosenStoneText = chosenStone[0] + chosenStone[1];
+
+    return chosenStoneText;
 }
 function setup() {
     rectMode(CENTER);
     createCanvas(canvasWidth, canvasHeight);
-    let chosenFortunes = getFortunes();
-    console.log(chosenFortunes);
+    for (let i = 0; i < 1000; i++) {
+        let chosenFortunes = getFortunes();
+        console.log(chosenFortunes);
+    }
+
 }
 
 
