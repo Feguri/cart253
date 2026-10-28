@@ -179,38 +179,88 @@ function getFortunes() {
     let chosenOrder;
     let chosenClass;
 
-    function returnObjectFromArray(object, rarity) {
-        let arrLength = object.length;
-        let chosenObject = object[Math.floor(Math.random() * arrLength)];
-        return [chosenObject, rarity];
+    function returnObjectFromCollection(collection, rarity) {
+        if (Array.isArray(collection)) {
+            let arrLength = collection.length;
+            let chosenItem = collection[Math.floor(Math.random() * arrLength)];
+            return [chosenItem, rarity];
+        }
+        else if (collection !== null && typeof collection === 'object') {
+            let keys = Object.keys(collection);
+            let chosenKey = keys[Math.floor(Math.random() * keys.length)];
+            let chosenValue = collection[chosenKey];
+
+            return [chosenKey, chosenValue, rarity];
+        }
+
+        return [null, rarity];
     }
 
     for (let i = 0; i < fortuneList.length; i++) {
-        if (fortuneList[i] > 200) {
-            chosenStone = returnObjectFromArray(fortuneObjects.magicStones.commonStones, " common");
-            
-            chosenOrder = returnObjectFromArray(fortuneObjects.order.commonOrders, " common");
-        } 
-        else if (fortuneList[i] > 20) {
-            chosenStone = returnObjectFromArray(fortuneObjects.magicStones.rareStones, " rare");
-
-            chosenOrder = returnObjectFromArray(fortuneObjects.order.ra, " rare");
+        // first fortune: stones
+        if (i === 0) {
+            if (fortuneList[i] > 200) {
+                chosenStone = returnObjectFromCollection(fortuneObjects.magicStones.commonStones, " common");
+            }
+            else if (fortuneList[i] > 20) {
+                chosenStone = returnObjectFromCollection(fortuneObjects.magicStones.rareStones, " rare");
+            }
+            else if (fortuneList[i] > 2) {
+                chosenStone = returnObjectFromCollection(fortuneObjects.magicStones.ultraRareStones, " ultra rare");
+            }
+            else {
+                chosenStone = returnObjectFromCollection(fortuneObjects.magicStones.impossible, " impossible??!");
+            }
         }
-        else if (fortuneList[i] > 2) {
-            chosenStone = returnObjectFromArray(fortuneObjects.magicStones.ultraRareStones, " ultra rare");
+        // second fortune: powers
+        else if (i === 1) {
+            if (fortuneList[i] > 200) {
+                chosenPower = returnObjectFromCollection(fortuneObjects.powers.commonPowers, " common");
+            }
+            else if (fortuneList[i] > 20) {
+                chosenPower = returnObjectFromCollection(fortuneObjects.powers.rarePowers, " rare");
+            }
+            else if (fortuneList[i] >= 1) {
+                chosenPower = returnObjectFromCollection(fortuneObjects.powers.ultraRarePowers, " ultra rare");
+            }
         }
-        else {
-            chosenStone = returnObjectFromArray(fortuneObjects.magicStones.impossible, " impossible??!");
+        // third fortune: Order
+        else if (i === 2) {
+            if (fortuneList[i] > 200) {
+                chosenOrder = returnObjectFromCollection(fortuneObjects.order.commonOrders, " common");
+            }
+            else if (fortuneList[i] > 20) {
+                chosenOrder = returnObjectFromCollection(fortuneObjects.order.rareOrders, " rare");
+            }
+            else if (fortuneList[i] >= 1) {
+                chosenOrder = returnObjectFromCollection(fortuneObjects.order.ultraRareOrders, " ultra rare");
+            }
         }
-
+        // fourth fortuhe: Class
+        else if (i === 3) {
+            if (fortuneList[i] > 200) {
+                chosenClass = returnObjectFromCollection(fortuneObjects.class.commonClasses, " common");
+            }
+            else if (fortuneList[i] > 20) {
+                chosenClass = returnObjectFromCollection(fortuneObjects.class.rareClasses, " rare");
+            }
+            else if (fortuneList[i] >= 1) {
+                chosenClass = returnObjectFromCollection(fortuneObjects.class.UltraRareClasses, " ultra rare");
+            }
+        }
     }
-    let chosenStoneText = chosenStone[0] + chosenStone[1];
+
+    let chosenStoneText = [[chosenStone[0], chosenStone[1]], [chosenPower[0], chosenPower[1], chosenPower[2]], [chosenOrder[0], chosenOrder[1]], [chosenClass[0], chosenClass[1]]];
 
     return chosenStoneText;
 }
 function setup() {
     rectMode(CENTER);
     createCanvas(canvasWidth, canvasHeight);
+
+    // let chosenFortunes = getFortunes();
+    // console.log(chosenFortunes)
+
     for (let i = 0; i < 1000; i++) {
         let chosenFortunes = getFortunes();
         console.log(chosenFortunes);
