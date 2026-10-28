@@ -13,9 +13,10 @@
 let trafficLight;
 let currentLight;
 
-// balls that move across the intersection (not controlled by the light yet)
+// balls that move across the intersection 
 let balls = [];
 
+// setup sets up traffic lights, balls, canvas dimensions, background, and the starting light.
 function setup() {
     createCanvas(500, 500);
     background("green");
@@ -58,7 +59,7 @@ function setup() {
         { x: -140, y: height / 2, speed: 2.5, size: 24 },
     ];
 }
-
+// detects mouse click to switch the lights
 function mouseClicked() {
     if (currentLight === "red") {
         currentLight = "green";
@@ -84,6 +85,7 @@ function drawTrafficLight() {
     rect(420, 220, 70, 200);
 }
 
+// draws traffic lights
 function drawLights() {
     noStroke();
     // red
@@ -139,6 +141,7 @@ function updateBalls() {
     }
 }
 
+// draws all the balls. uses a for loop to draw multiple balls.
 function drawBalls() {
     noStroke();
     fill(40, 120, 220);
@@ -147,6 +150,7 @@ function drawBalls() {
     }
 }
 
+// draws everything that needs to be drawn, plus updating mechanics for the balls.
 function draw() {
     background("green");
     drawIntersection();

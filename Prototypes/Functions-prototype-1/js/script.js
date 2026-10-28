@@ -3,24 +3,29 @@
  * Felipe Paiva
  * 
  * A canvas full of small “planets” orbiting a central point, but there’s only one drawPlanet-style function. Every planet gets its own orbit radius, speed, size, color, and maybe a number of moons, all passed in as arguments. Clicking adds a new planet with random settings, and hovering over one highlights it.
+ * Fun fact: the possible number of different solar systems this program can generate far exceeds the number of atoms in the observable universe.
  */
 
 "use strict";
+// global variables
 const formatter = new Intl.NumberFormat('en-US');
 let backgroundColor;
 let pixelFont;
 let maxNumOfPlanets = Math.floor(Math.random() * 8);
 let planets = [];
 
+// capitalizes a string
 function capitalize(str) {
     if (!str) return '';
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+// preloads pixel font!
 function preload() {
     pixelFont = loadFont('assets/fonts/pixelated.ttf');
 }
 
+// this function generates a random star based on a template. It chooses it using math.random then returns a bunch of data from the chosen star
 function generateRandomStar() {
     const starTemplates = [
         { colorName: "red", rgb: [255, 69, 0], temperatureRange: [1700, 3600]},
@@ -48,12 +53,14 @@ function generateRandomStar() {
     };
 }
 
+// generates random star
 let star = generateRandomStar();
+// draws the star
 function drawStar() {
     fill(`rgb(${star.rgb[0]}, ${star.rgb[1]}, ${star.rgb[2]})`);
     circle(star.positionX, star.positionY, star.size);
 }
-
+// draws planets
 function drawPlanets() {
     function drawPlanet(planet) {
         fill(`rgb(${planet.rgb[0]}, ${planet.rgb[1]}, ${planet.rgb[2]})`);
@@ -66,6 +73,7 @@ function drawPlanets() {
     }
 }
 
+// biggest function of the program. it has many different planet templates, then it uses a for loop to loop through the randomly generated number of planets in the system, and for each planet it picks a random one from here.
 function generatePlanets() {
     const planetTemplates = [
         // Rocky planets
@@ -124,12 +132,11 @@ function generatePlanets() {
         planets.push(chosenTemplate);
         planetDistanceFromStar += (50 + planetSize);
     }
-    console.log(planets);
 };
 
 generatePlanets();
 /**
- * Setup Description
+ * Setup Description: it sets up the bg color, canvas, and rectmode.
 */
 function setup() {
     backgroundColor = "rgb(2, 0, 10)";
@@ -140,6 +147,7 @@ function setup() {
     rectMode(CENTER);
 }
 
+// super useful function: detects mouse over with anything in the program given you have the x, y, w and h of the object.
 function isMouseOver(x, y, w, h) {
     return (
         mouseX >= x &&    
@@ -148,10 +156,6 @@ function isMouseOver(x, y, w, h) {
         mouseY <= y + h   
     );
 }
-
-/**
- * Draw description
-*/
 
 // main mechanic of drawstatsbox is to display a text background with text information in it, with dynamic position during the page.
 
@@ -185,6 +189,7 @@ function drawStatsBoxStar(offsetX, boxSizeX, boxSizeY, fontSize) {
     text(star.temperature + "°C", mouseX + offsetX / 2 - 20, mouseY + 70);
 }
 
+// drawstatsboxplanet has a similar role to the star one, but it needs to be slightly different because it displays slightly different types of data.
 function drawStatsBoxPlanet(planet, offsetX, boxSizeX, boxSizeY, fontSize) {
     textSize(fontSize);
     textFont(pixelFont);
@@ -218,6 +223,8 @@ function drawStatsBoxPlanet(planet, offsetX, boxSizeX, boxSizeY, fontSize) {
 
 }
 
+// draw draws a background, star, planets, and it draws a stats box for a star if there is a mouse over it
+// there is also a for loop to check ismouseover for each planet of the system, at all times. it is necessary in order to always draw the stats box.
 function draw() {
     background(backgroundColor);
     drawStar();

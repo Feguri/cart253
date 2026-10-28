@@ -7,6 +7,7 @@
 
 "use strict";
 
+// global variables
 const canvasWidth = window.innerWidth;
 const canvasHeight = window.innerHeight;
 const r = Math.floor(Math.random() * (100 - 20 + 1)) + 20;
@@ -19,6 +20,7 @@ const strokeColor = `rgb(246, 237, 232)`;
 let pixelFont;
 let chosenFortunes = [];
 
+// object (data) that makes all possible fortunes
 const fortuneObjects = {
     magicStones: {
         commonStones: [
@@ -134,6 +136,7 @@ function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+// function that returns a specific color based on the rarity
 function getRarityColor(rarity) {
     const cleaned = String(rarity).trim().toLowerCase();
     if (cleaned.includes("impossible")) {
@@ -148,6 +151,8 @@ function getRarityColor(rarity) {
     return "rgb(180, 180, 180)";
 }
 
+// this function returns a rarity score from 1 to 4 based on how rare an object is.
+// before doing that I have to clean the input string because it comes with spaces and stuff
 function getRarityScore(rarity) {
     const cleaned = String(rarity).trim().toLowerCase();
     if (cleaned.includes("impossible")) {
@@ -162,6 +167,7 @@ function getRarityScore(rarity) {
     return 1;
 }
 
+// this function returns a tier from F to SSS based on a furtune score.
 function getCardTier(fortunes) {
     const score =
         getRarityScore(fortunes[0][1]) +
@@ -174,6 +180,7 @@ function getCardTier(fortunes) {
     return tiers[index];
 }
 
+// this function returns a color based on the tier a card got.
 function getTierColor(tier) {
     const colors = {
         F: "rgb(140, 140, 140)",
@@ -189,10 +196,12 @@ function getTierColor(tier) {
     return colors[tier] || "rgb(180, 180, 180)";
 }
 
+// formatter
 function formatRarity(rarity) {
     return "(" + String(rarity).trim() + ")";
 }
 
+// draws the fortune value 
 function drawFortuneValue(labelX, textY, nameText, rarity, defaultColor) {
     fill(defaultColor);
     text(nameText + " ", labelX, textY);
@@ -201,6 +210,7 @@ function drawFortuneValue(labelX, textY, nameText, rarity, defaultColor) {
     text(formatRarity(rarity), labelX + nameWidth, textY);
 }
 
+// this is the biggest and most complex function, with many different inputs. It draws a fortune card.
 function drawFortuneCard(
     x,
     y,
@@ -299,6 +309,8 @@ function getFortunes() {
     let chosenOrder;
     let chosenClass;
 
+    // this is a "helper" function that aids in returning an object from a specific collection.
+    // trickiest part was making it return from an object instead of an array if a collection is an object.
     function returnObjectFromCollection(collection, rarity) {
         if (Array.isArray(collection)) {
             let arrLength = collection.length;
@@ -316,6 +328,7 @@ function getFortunes() {
         return [null, rarity];
     }
 
+    // for loop for each fortune
     for (let i = 0; i < fortuneList.length; i++) {
         // first fortune: stones
         if (i === 0) {
@@ -383,7 +396,7 @@ function setup() {
 
 
 /**
- * Draw description
+ * Draw description: it sets a few constant variables, then sets a for loop to draw fortune cards
 */
 function draw() {
     background(backgroundColor);

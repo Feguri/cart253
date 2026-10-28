@@ -42,7 +42,7 @@ For the third prototype, I had the idea to make a functioning traffic light with
 
 Overall, I had a lot of fun making these prototypes, especially the first and last ones. I learned some things, and I'm slowly getting used to coding and thinking with my brain for once.
 
-## Entry 5 - 2026/10/06 - Event Prototypes
+## Entry 5 - 2026/10/15 - Event Prototypes
 
 This was a really fun one to make, all three of them! Since I had two weeks to work on them, I put a little more effort into doing something more enjoyable.
 
@@ -51,3 +51,13 @@ I first started with the first Gesture Painter prototype. Making it was an inter
 Then, I moved on into coding the third prototype. This was the most fun. It took a while for me to figure out the sound ... apparently I had to use async and await in the setup function. Other than that, the trickiest part was coming up with vertex positions so I can draw an open door, and having it animate for a few seconds before going to the next level.
 
 Finally, for the second prototype, I illustrated a little cat character in illustrator as well as different expressions for him. In this prototype, I made him sleep for 30 seconds and be awake for 30 seconds as well. If you click on him, he gets annoyed. And if you do it while he is sleeping, his sleeping time will increase every time.
+
+## Entry 5 - 2026/10/27 - Function Prototypes
+
+Making these was really fun. I fell into the old habit again, putting a giant amount of effort in one program (the stars one) then realizing there is not much time left for the others. I will try to learn from this and write up more moderate prototype expectations for the next time.
+
+With that being said, I had a lot of fun doing these. And it was part of the reason I kept wanting to spend time with them and perfect everything. I genuinely want to see the end result every time, these are games and things I *want* to interact with. 
+
+The last prototype was the one that felt the most rushed, I really didn't have a lot of time to make it. It is still fun and quirky in its own way though, and still gave me some ideas for other projects.
+
+Yeah, I'm a big fan of space, fortunes, randomness, loot, stats, and game-like stuff, and I got hooked into making these!
