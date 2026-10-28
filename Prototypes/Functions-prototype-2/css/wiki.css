@@ -148,25 +148,81 @@ a:hover {
 }
 
 .fortune-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px 12px;
+}
+
+.fortune-list.single {
+  grid-template-columns: 1fr;
+  max-width: 720px;
+}
+
+.fortune {
+  border: 2px solid rgba(246, 237, 232, 0.28);
+  background: rgba(0, 0, 0, 0.16);
+  padding: 0;
+}
+
+.fortune summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  user-select: none;
+}
+
+.fortune summary::-webkit-details-marker {
+  display: none;
+}
+
+.fortune summary::after {
+  content: "+";
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.fortune[open] summary::after {
+  content: "–";
+  color: var(--ultra);
+}
+
+.fortune summary:hover {
+  color: var(--ultra);
+}
+
+.fortune[open] {
+  border-color: rgba(255, 200, 40, 0.55);
+  grid-column: 1 / -1;
+}
+
+.fortune p {
+  margin: 0;
+  padding: 0 14px 14px;
+  color: var(--muted);
+  max-width: 68ch;
+  border-top: 1px solid rgba(246, 237, 232, 0.12);
+  padding-top: 12px;
+}
+
+.fortune-list-static {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: 1fr;
+  max-width: 420px;
   gap: 8px 16px;
 }
 
-.fortune-list li {
+.fortune-list-static li {
   border-bottom: 1px solid rgba(246, 237, 232, 0.18);
   padding: 6px 0;
-}
-
-.fortune-list.stats {
-  grid-template-columns: 1fr;
-  max-width: 420px;
-}
-
-.fortune-list.stats li {
   display: flex;
   justify-content: space-between;
   gap: 16px;
@@ -174,6 +230,11 @@ a:hover {
 
 .stat {
   color: var(--muted);
+  flex-shrink: 0;
+}
+
+.name {
+  min-width: 0;
 }
 
 .health-hint {

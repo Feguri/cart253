@@ -16,7 +16,7 @@
       <p class="lead">
         Every fortune card is built from four parts: a Magic Stone, a Power, an Order,
         and a Class. Deck battles resolve card-to-card — Card 1 vs Card 1, Card 2 vs Card 2,
-        Card 3 vs Card 3.
+        Card 3 vs Card 3. Click any fortune below to read what it does.
       </p>
     </header>
 
@@ -56,10 +56,10 @@
         <article class="rule">
           <h3>Class</h3>
           <p>
-            Applies debuffs to opposing cards before battle begins. The only fortune
-            that can influence more than one rival card. Reach scales with rarity —
-            for example, a rare Class on Card 1 can hit Cards 1, 2 &amp; 3 of the
-            opposing deck.
+            Applies an effect before battle begins — either a debuff on the opposing
+            deck or a buff on your own. The only fortune that can influence more than
+            one card. Reach scales with rarity — for example, a rare Class on Card 1
+            can affect Cards 1, 2 &amp; 3.
           </p>
         </article>
       </div>
@@ -68,153 +68,366 @@
     <section id="stones" class="panel">
       <h2>Magic Stones</h2>
       <p class="section-note">
-        Eradication chance and strength rise with rarity. Impossible stones rewrite the lane.
+        Eradication strength rises with rarity. Common stones only delete fragile rivals;
+        Impossible stones erase any lane opponent outright.
       </p>
 
       <h3><span class="rarity common">Common</span></h3>
-      <ul class="fortune-list">
-        <li>Spadow</li>
-        <li>Sphynx</li>
-        <li>Cornelious</li>
-        <li>Abraham</li>
-        <li>Dragsten</li>
-        <li>Sparklows</li>
-        <li>Amerix</li>
-        <li>Cardoush</li>
-        <li>Yoklow</li>
-        <li>Jaminix</li>
-      </ul>
+      <div class="fortune-list">
+        <details class="fortune">
+          <summary>Spadow</summary>
+          <p>A dim shadow-cut gem. In its lane (Card N vs Card N), Spadow can eradicate an opposing card only if that card’s Magic Stone is also common — otherwise the rival stays standing and Power decides the fight.</p>
+        </details>
+        <details class="fortune">
+          <summary>Sphynx</summary>
+          <p>Whispering riddle stone. Eradicates the lane rival when their stone rarity is common and their Order protection is under 40. If the puzzle fails, nothing is deleted and battle continues normally.</p>
+        </details>
+        <details class="fortune">
+          <summary>Cornelious</summary>
+          <p>Grainy amber shard. Completely eradicates a same-lane opponent whose stone is common, then softens leftover Order health by a small amount if eradication somehow fails.</p>
+        </details>
+        <details class="fortune">
+          <summary>Abraham</summary>
+          <p>Old covenant stone. Eradicates the opposing lane card only on a clean rarity edge — common vs common. Against rare or higher stones it does nothing special and Power takes over.</p>
+        </details>
+        <details class="fortune">
+          <summary>Dragsten</summary>
+          <p>Smoky dragon-scale crystal. Can eradicate a common-stone rival in the same lane after a short delay, which means Class debuffs still apply first before the wipe lands.</p>
+        </details>
+        <details class="fortune">
+          <summary>Sparklows</summary>
+          <p>Flicker-bright pebble. Eradicates the opposing card if that card’s combined rarity score is low (mostly commons). High-tier rivals shrug it off and trade Power damage instead.</p>
+        </details>
+        <details class="fortune">
+          <summary>Amerix</summary>
+          <p>Common-cut Amerix. Same name as its rare twin, but weaker: eradicates only common-stone lane rivals and never touches rare or ultra rare stones.</p>
+        </details>
+        <details class="fortune">
+          <summary>Cardoush</summary>
+          <p>Paper-thin slate. Eradicates a same-lane card by shredding its presence when the rival stone is common. Against thicker stones it leaves a paper cut — no full wipe.</p>
+        </details>
+        <details class="fortune">
+          <summary>Yoklow</summary>
+          <p>Mud-glow ore. Completely eradicates common-stone opponents in the matching lane; if the rival survives, Yoklow does not alter Power or Order — pure erase-or-nothing.</p>
+        </details>
+        <details class="fortune">
+          <summary>Jaminix</summary>
+          <p>Jittery blue chip. Has a chance to eradicate a common-stone lane rival before Power resolves. Failure simply means a normal damage-versus-protection clash.</p>
+        </details>
+      </div>
 
       <h3><span class="rarity rare">Rare</span></h3>
-      <ul class="fortune-list">
-        <li>Pendragon</li>
-        <li>Amerix</li>
-        <li>Glownatrax</li>
-        <li>Galliardo</li>
-      </ul>
+      <div class="fortune-list">
+        <details class="fortune">
+          <summary>Pendragon</summary>
+          <p>Crown-flame jewel. Eradicates any opposing card in the same lane whose Magic Stone is common or rare. Ultra rare and Impossible stones still resist the purge.</p>
+        </details>
+        <details class="fortune">
+          <summary>Amerix</summary>
+          <p>Rare-cut Amerix. Sharper than the common version: eradicates common and rare lane rivals, and halves the protection of an ultra rare rival if eradication is blocked.</p>
+        </details>
+        <details class="fortune">
+          <summary>Glownatrax</summary>
+          <p>Neon lattice stone. Floods the lane with light and eradicates common or rare opposing stones on contact. Surviving ultra rares fight through the glare at full Power.</p>
+        </details>
+        <details class="fortune">
+          <summary>Galliardo</summary>
+          <p>Duelist’s gem. Eradicates the matching-lane rival if their stone rarity is lower or equal (common/rare). The wipe happens after Class debuffs, so softened targets fall first.</p>
+        </details>
+      </div>
 
       <h3><span class="rarity ultra">Ultra Rare</span></h3>
-      <ul class="fortune-list">
-        <li>Spanxlow</li>
-      </ul>
+      <div class="fortune-list">
+        <details class="fortune">
+          <summary>Spanxlow</summary>
+          <p>Horizon-tear crystal. Completely eradicates any opposing card in the same lane unless that card holds the Impossible stone Wuyowa. Power and Order never get a say once Spanxlow lands.</p>
+        </details>
+      </div>
 
       <h3><span class="rarity impossible">Impossible??!</span></h3>
-      <ul class="fortune-list">
-        <li>Wuyowa</li>
-      </ul>
+      <div class="fortune-list">
+        <details class="fortune">
+          <summary>Wuyowa</summary>
+          <p>The stone that should not exist. Eradicates the opposing lane card no matter its rarity — including Spanxlow — before Class, Power, or Order resolve. Nothing in a deck battle outranks Wuyowa’s wipe.</p>
+        </details>
+      </div>
     </section>
 
     <section id="powers" class="panel">
       <h2>Powers</h2>
       <p class="section-note">
-        Damage numbers decide how hard a card hits once the lane is contested.
+        Power is the most determining number in a contested lane. Damage chews through
+        Order protection after stones fail to eradicate.
       </p>
 
       <h3><span class="rarity common">Common</span></h3>
-      <ul class="fortune-list stats">
-        <li><span class="name">Shadow</span><span class="stat">40 damage</span></li>
-        <li><span class="name">Sponk</span><span class="stat">50 damage</span></li>
-        <li><span class="name">Drawg</span><span class="stat">13 damage</span></li>
-      </ul>
+      <div class="fortune-list single">
+        <details class="fortune">
+          <summary><span class="name">Shadow</span><span class="stat">40 damage</span></summary>
+          <p>Soft umbral strike. Deals 40 damage to the opposing card’s Order protection in the same lane. Best for finishing rivals already weakened by Class debuffs; alone it rarely cracks rare Orders.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Sponk</span><span class="stat">50 damage</span></summary>
+          <p>Blunt cartoon punch. Deals 50 damage — the strongest common Power. Reliable against fragile common Orders (under 50 protection) and a steady chip against rarer shields.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Drawg</span><span class="stat">13 damage</span></summary>
+          <p>Slow drag scrape. Only 13 damage, the weakest Power in the machine. Needs Class debuffs or a stone eradication to matter; otherwise it barely scratches most Orders.</p>
+        </details>
+      </div>
 
       <h3><span class="rarity rare">Rare</span></h3>
-      <ul class="fortune-list stats">
-        <li><span class="name">Grapple</span><span class="stat">67 damage</span></li>
-        <li><span class="name">Casticize</span><span class="stat">80 damage</span></li>
-        <li><span class="name">Galvazprinx</span><span class="stat">100 damage</span></li>
-        <li><span class="name">Gluon Array</span><span class="stat">200 damage</span></li>
-        <li><span class="name">Sparker Grind</span><span class="stat">156 damage</span></li>
-      </ul>
+      <div class="fortune-list single">
+        <details class="fortune">
+          <summary><span class="name">Grapple</span><span class="stat">67 damage</span></summary>
+          <p>Latch-and-crush force. Deals 67 damage and tends to lock the lane duel so the rival cannot “slip” — destruction potential is solid mid-tier against common and light rare Orders.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Casticize</span><span class="stat">80 damage</span></summary>
+          <p>Purifying bolt. Deals 80 damage, strong enough to shatter most common protection values in one hit and dent rare Orders hard before a second exchange.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Galvazprinx</span><span class="stat">100 damage</span></summary>
+          <p>Charged prism blast. A clean 100 damage — the numerical pivot of many rare fights. Destroys common Orders outright and threatens mid-rare protection in a single strike.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Gluon Array</span><span class="stat">200 damage</span></summary>
+          <p>Particle lattice barrage. Deals 200 damage, the hardest rare Power. Cracks every common Order and most rare Orders; only ultra rare protection still stands tall after one hit.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Sparker Grind</span><span class="stat">156 damage</span></summary>
+          <p>Grinding spark mill. Deals 156 damage with lingering burn feel — excellent destruction potential that shreds common shields and leaves rare Orders barely clinging.</p>
+        </details>
+      </div>
 
       <h3><span class="rarity ultra">Ultra Rare</span></h3>
-      <ul class="fortune-list stats">
-        <li><span class="name">Atom Bomb</span><span class="stat">123049 damage</span></li>
-        <li><span class="name">Ant Army</span><span class="stat">1034 damage</span></li>
-        <li><span class="name">Crystal Bomb</span><span class="stat">670 damage</span></li>
-      </ul>
+      <div class="fortune-list single">
+        <details class="fortune">
+          <summary><span class="name">Atom Bomb</span><span class="stat">123049 damage</span></summary>
+          <p>Cataclysm number. Deals 123049 damage — enough to vaporize every finite Order protection value in the wiki. Only Infinite protection (Sp4ti4l 4n0m4ly) can theoretically survive the blast.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Ant Army</span><span class="stat">1034 damage</span></summary>
+          <p>Swarm of tiny bites that sum to 1034 damage. Overwhelms common and rare Orders easily and pressures ultra rare shields that are not near-infinite.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Crystal Bomb</span><span class="stat">670 damage</span></summary>
+          <p>Shrapnel detonation for 670 damage. Destroys all common and rare Orders in one hit and deeply wounds ultra rare protection short of Ultimum / Sp4ti4l 4n0m4ly.</p>
+        </details>
+      </div>
     </section>
 
     <section id="orders" class="panel">
       <h2>Orders</h2>
       <p class="section-note">
-        Orders supply protection health. Common orders start fragile; ultra rare orders
-        can approach infinite endurance.
+        Orders give protection health that absorbs Power damage. Values range from 0 to
+        Infinite — click each order for its exact shield.
       </p>
 
-      <h3><span class="rarity common">Common</span> <span class="health-hint">low health</span></h3>
-      <ul class="fortune-list">
-        <li>Smiths</li>
-        <li>Sphynxs</li>
-        <li>Shallows</li>
-        <li>Gravestones Union</li>
-        <li>Galeccia Family</li>
-        <li>Cascadia</li>
-        <li>Klorence Army</li>
-        <li>Vegetables</li>
-        <li>Caned</li>
-      </ul>
+      <h3><span class="rarity common">Common</span></h3>
+      <div class="fortune-list single">
+        <details class="fortune">
+          <summary><span class="name">Smiths</span><span class="stat">35 protection</span></summary>
+          <p>Workshop guild shield. Grants 35 protection health — enough to soak Shadow or Drawg once, but Sponk and any rare Power smash straight through.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Sphynxs</span><span class="stat">48 protection</span></summary>
+          <p>Riddle-bound ward. Grants 48 protection. Survives Shadow with a sliver left; Sponk (50) and everything rarer still break it in one hit.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Shallows</span><span class="stat">20 protection</span></summary>
+          <p>Thin coastal barrier. Only 20 protection — the second-weakest common Order. Almost any Power deletes it unless Class debuffs never get a chance to matter.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Gravestones Union</span><span class="stat">55 protection</span></summary>
+          <p>Cemetery collective armor. Grants 55 protection, tankiest among commons. Blocks all common Powers once; rare Powers still punch through.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Galeccia Family</span><span class="stat">42 protection</span></summary>
+          <p>House crest barrier. Grants 42 protection — stops Shadow, fails against Sponk and every higher Power without help from stone eradication or Class debuffs.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Cascadia</span><span class="stat">30 protection</span></summary>
+          <p>Rain-curtain ward. Grants 30 protection. Soft common shield that only Drawg fails to clear; Shadow and above crack it open.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Klorence Army</span><span class="stat">50 protection</span></summary>
+          <p>Rank-and-file plating. Grants 50 protection — exactly matches Sponk, so common-vs-common often ends in a mutual break unless a stone eradicates first.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Vegetables</span><span class="stat">0 protection</span></summary>
+          <p>Salad solidarity. Grants 0 protection — the floor of Order health. Any Power destroys the card immediately if the Magic Stone did not already eradicate the rival.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Caned</span><span class="stat">25 protection</span></summary>
+          <p>Woven cane shell. Grants 25 protection. Slightly tougher than Shallows, still erased by every Power except Drawg.</p>
+        </details>
+      </div>
 
-      <h3><span class="rarity rare">Rare</span> <span class="health-hint">strong health</span></h3>
-      <ul class="fortune-list">
-        <li>Sparxiax Galactic</li>
-        <li>Cullmanstox</li>
-        <li>Imperial Family</li>
-        <li>Clarxmaidens</li>
-      </ul>
+      <h3><span class="rarity rare">Rare</span></h3>
+      <div class="fortune-list single">
+        <details class="fortune">
+          <summary><span class="name">Sparxiax Galactic</span><span class="stat">180 protection</span></summary>
+          <p>Starfleet lattice. Grants 180 protection. Absorbs every common Power and most rare Powers; Gluon Array (200) is the rare strike that still breaks it cold.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Cullmanstox</span><span class="stat">220 protection</span></summary>
+          <p>Industrial vault plating. Grants 220 protection — survives all rare Powers except a fresh Gluon Array is close; ultra rare Powers still crush it.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Imperial Family</span><span class="stat">300 protection</span></summary>
+          <p>Bloodline bastion. Grants 300 protection. Holds against every rare Power including Gluon Array; only ultra rare destruction numbers reliably end the line.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Clarxmaidens</span><span class="stat">150 protection</span></summary>
+          <p>Choir-guard veil. Grants 150 protection. Stops commons and lighter rares; Sparker Grind (156) and Gluon Array (200) still tear it down.</p>
+        </details>
+      </div>
 
-      <h3><span class="rarity ultra">Ultra Rare</span> <span class="health-hint">near-infinite health</span></h3>
-      <ul class="fortune-list">
-        <li>Royal Family</li>
-        <li>Ultimum</li>
-        <li>Glass'o Corp.</li>
-        <li>Sp4ti4l 4n0m4ly</li>
-      </ul>
+      <h3><span class="rarity ultra">Ultra Rare</span></h3>
+      <div class="fortune-list single">
+        <details class="fortune">
+          <summary><span class="name">Royal Family</span><span class="stat">800 protection</span></summary>
+          <p>Throne-grade aegis. Grants 800 protection — shrugs off Crystal Bomb’s first bite if debuffed down, but Ant Army and Atom Bomb still overwhelm the crown.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Ultimum</span><span class="stat">5000 protection</span></summary>
+          <p>Final-wall doctrine. Grants 5000 protection. Survives Crystal Bomb and Ant Army with room to spare; only Atom Bomb’s absurd number can shatter Ultimum outright.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Glass'o Corp.</span><span class="stat">1200 protection</span></summary>
+          <p>Corporate mirror shield. Grants 1200 protection. Crystal Bomb chips it; Ant Army cracks it; Atom Bomb deletes the quarterly report.</p>
+        </details>
+        <details class="fortune">
+          <summary><span class="name">Sp4ti4l 4n0m4ly</span><span class="stat">Infinite protection</span></summary>
+          <p>Broken geometry Order. Grants Infinite protection — Power damage cannot reduce it. The only ways past are Magic Stone eradication or Class debuffs that strip the anomaly before the clash.</p>
+        </details>
+      </div>
     </section>
 
     <section id="classes" class="panel">
       <h2>Classes</h2>
       <p class="section-note">
-        Classes debuff enemies before the clash. Common reaches one lane; rare can sweep
-        the whole opposing deck; ultra rare hits harder and wider.
+        About half of Classes buff your own deck; the rest debuff the opposing deck.
+        Common affects 1 card (same lane). Rare can influence Cards 1, 2 &amp; 3.
+        Ultra rare pushes the whole deck harder.
       </p>
 
-      <h3><span class="rarity common">Common</span> <span class="health-hint">debuffs 1 card</span></h3>
-      <ul class="fortune-list">
-        <li>Technologist</li>
-        <li>Spiritualist</li>
-        <li>Farmer</li>
-        <li>Explorer</li>
-        <li>Settler</li>
-        <li>Scientist</li>
-        <li>Fugitive</li>
-        <li>Funeralist</li>
-        <li>Healer</li>
-        <li>Warrior</li>
-        <li>Soldier</li>
-        <li>Criminal</li>
-      </ul>
+      <h3><span class="rarity common">Common</span> <span class="health-hint">affects 1 card</span></h3>
+      <div class="fortune-list single">
+        <details class="fortune">
+          <summary>Technologist</summary>
+          <p>Debuff: Short Circuit — reduces the opposing same-lane card’s Power damage by 20% before battle. Only affects that one rival card.</p>
+        </details>
+        <details class="fortune">
+          <summary>Spiritualist</summary>
+          <p>Buff: Blessing Veil — raises your same-lane card’s Order protection by 20 before Power resolves. Lane-only self support.</p>
+        </details>
+        <details class="fortune">
+          <summary>Farmer</summary>
+          <p>Buff: Harvest Surge — adds +15 Power damage to your same-lane card for this clash, grown from steady prep before battle.</p>
+        </details>
+        <details class="fortune">
+          <summary>Explorer</summary>
+          <p>Debuff: Mapped Weakness — reveals and marks the rival lane card so your Power ignores 10 of their protection. Affects Card N vs Card N only.</p>
+        </details>
+        <details class="fortune">
+          <summary>Settler</summary>
+          <p>Buff: Fortify Claim — reinforces your same-lane Order with +25 protection and lets your Magic Stone attempt eradication one beat earlier.</p>
+        </details>
+        <details class="fortune">
+          <summary>Scientist</summary>
+          <p>Buff: Field Notes — calibrates your same-lane Power for +12 damage and +8 protection this battle only.</p>
+        </details>
+        <details class="fortune">
+          <summary>Fugitive</summary>
+          <p>Debuff: Smoke Trail — the opposing same-lane card’s Class effect is cancelled this round, then they take a flat −5 protection.</p>
+        </details>
+        <details class="fortune">
+          <summary>Funeralist</summary>
+          <p>Debuff: Last Rites — if the opposing same-lane card’s Order is already under 40 protection, they lose all remaining protection before Power hits.</p>
+        </details>
+        <details class="fortune">
+          <summary>Healer</summary>
+          <p>Buff: Mend — restores +30 Order protection to your same-lane card before the clash. Vegetables jump from 0 to a real shield for one fight.</p>
+        </details>
+        <details class="fortune">
+          <summary>Warrior</summary>
+          <p>Buff: War Cry — pumps your same-lane Power by +18 damage before the trade. Pure self aggression, no rival touch.</p>
+        </details>
+        <details class="fortune">
+          <summary>Soldier</summary>
+          <p>Debuff: Suppressive Fire — the opposing same-lane card deals half Power this round if their Power rarity is common; otherwise −10 damage.</p>
+        </details>
+        <details class="fortune">
+          <summary>Criminal</summary>
+          <p>Debuff: Pickpocket Protocol — steals a temporary −1 rarity step from the opposing same-lane Magic Stone for eradication checks this battle only.</p>
+        </details>
+      </div>
 
-      <h3><span class="rarity rare">Rare</span> <span class="health-hint">debuffs up to 3 cards</span></h3>
-      <ul class="fortune-list">
-        <li>Office Clerk</li>
-        <li>Medic</li>
-        <li>Governor</li>
-        <li>Ally</li>
-        <li>Leader</li>
-        <li>Landlord</li>
-        <li>Conquistador</li>
-        <li>Mastermind</li>
-        <li>Specialist</li>
-        <li>Cyborg</li>
-      </ul>
+      <h3><span class="rarity rare">Rare</span> <span class="health-hint">affects up to 3 cards</span></h3>
+      <div class="fortune-list single">
+        <details class="fortune">
+          <summary>Office Clerk</summary>
+          <p>Debuff: Paperwork Flood — when played on Card 1, floods opposing Cards 1, 2 &amp; 3 with forms that each lose 20 Power damage before battle. From Card 2 or 3, still hits the whole opposing deck.</p>
+        </details>
+        <details class="fortune">
+          <summary>Medic</summary>
+          <p>Buff: Triage Network — heals +40 Order protection across your Cards 1, 2 &amp; 3 before any lane resolves.</p>
+        </details>
+        <details class="fortune">
+          <summary>Governor</summary>
+          <p>Debuff: Martial Decree — locks stone eradication on opposing Cards 1–3 for one beat, forcing Power-vs-Order fights deck-wide.</p>
+        </details>
+        <details class="fortune">
+          <summary>Ally</summary>
+          <p>Buff: Shared Supply — each of your Cards 1–3 gains +15 Power damage and +20 protection before the clash.</p>
+        </details>
+        <details class="fortune">
+          <summary>Leader</summary>
+          <p>Buff: Rally Call — inspires your Cards 1, 2 &amp; 3 so each deals +25 Power damage this battle.</p>
+        </details>
+        <details class="fortune">
+          <summary>Landlord</summary>
+          <p>Debuff: Eviction Notice — strips 40 protection from every opposing card (1–3). Vegetables and other low Orders often fold before Power even swings.</p>
+        </details>
+        <details class="fortune">
+          <summary>Conquistador</summary>
+          <p>Debuff: Claimed Territory — opposing Cards 1–3 cannot use Class effects this round, and each loses 15 protection.</p>
+        </details>
+        <details class="fortune">
+          <summary>Mastermind</summary>
+          <p>Debuff: Triple Scheme — predicts the fight: opposing Cards 1–3 each suffer −15% Power and −15 protection before lanes resolve.</p>
+        </details>
+        <details class="fortune">
+          <summary>Specialist</summary>
+          <p>Buff: Tuned Doctrine — your same-lane Magic Stone gains +1 effective rarity for eradication, and your other two cards each gain +35 Power.</p>
+        </details>
+        <details class="fortune">
+          <summary>Cyborg</summary>
+          <p>Buff: Signal Boost — overclocks your Cards 1–3 for +30% Power and +25 protection each this battle.</p>
+        </details>
+      </div>
 
       <h3><span class="rarity ultra">Ultra Rare</span> <span class="health-hint">deck-wide pressure</span></h3>
-      <ul class="fortune-list">
-        <li>Monopolist</li>
-        <li>Agent</li>
-        <li>World Leader</li>
-        <li>Star Fighter</li>
-      </ul>
+      <div class="fortune-list single">
+        <details class="fortune">
+          <summary>Monopolist</summary>
+          <p>Debuff: Market Collapse — hits opposing Cards 1, 2 &amp; 3 for −50% Power and −100 protection each before battle. The harshest economy wipe short of erasing stones.</p>
+        </details>
+        <details class="fortune">
+          <summary>Agent</summary>
+          <p>Debuff: Black File — marks the whole opposing deck: Cards 1–3 lose stone eradication rights this round and take +80 incoming Power damage apiece.</p>
+        </details>
+        <details class="fortune">
+          <summary>World Leader</summary>
+          <p>Buff: Global Mandate — your Cards 1–3 each gain +50% Power and +200 protection (Infinite Orders stay Infinite). Full-deck self empowerment.</p>
+        </details>
+        <details class="fortune">
+          <summary>Star Fighter</summary>
+          <p>Buff: Orbital Escort — shields your Cards 1–3 with +150 protection each and lets every friendly Magic Stone attempt eradication one rarity step higher this round.</p>
+        </details>
+      </div>
     </section>
 
     <section id="rarity" class="panel">
@@ -223,7 +436,7 @@
         Each part rolls its own rarity. Combined scores map to an overall card tier from
         F through SSS.
       </p>
-      <ul class="fortune-list stats">
+      <ul class="fortune-list-static stats">
         <li><span class="name rarity common">Common</span><span class="stat">score 1</span></li>
         <li><span class="name rarity rare">Rare</span><span class="stat">score 2</span></li>
         <li><span class="name rarity ultra">Ultra Rare</span><span class="stat">score 3</span></li>
