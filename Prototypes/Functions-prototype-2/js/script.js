@@ -17,6 +17,7 @@ const cardBackgroundColor = `rgb(${r}, ${g}, ${b})`;
 const textColor = `rgb(246, 237, 232)`;
 const strokeColor = `rgb(246, 237, 232)`;
 let pixelFont;
+let chosenFortunes = [];
 
 const fortuneObjects = {
     magicStones: {
@@ -128,6 +129,78 @@ const fortuneObjects = {
 /**
  * Setup Description
 */
+function capitalize(str) {
+    if (!str) return '';
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function getRarityColor(rarity) {
+    const cleaned = String(rarity).trim().toLowerCase();
+    if (cleaned.includes("impossible")) {
+        return "rgb(255, 60, 180)";
+    }
+    if (cleaned.includes("ultra")) {
+        return "rgb(255, 200, 40)";
+    }
+    if (cleaned.includes("rare")) {
+        return "rgb(80, 160, 255)";
+    }
+    return "rgb(180, 180, 180)";
+}
+
+function getRarityScore(rarity) {
+    const cleaned = String(rarity).trim().toLowerCase();
+    if (cleaned.includes("impossible")) {
+        return 4;
+    }
+    if (cleaned.includes("ultra")) {
+        return 3;
+    }
+    if (cleaned.includes("rare")) {
+        return 2;
+    }
+    return 1;
+}
+
+function getCardTier(fortunes) {
+    const score =
+        getRarityScore(fortunes[0][1]) +
+        getRarityScore(fortunes[1][2]) +
+        getRarityScore(fortunes[2][1]) +
+        getRarityScore(fortunes[3][1]);
+
+    const tiers = ["F", "E", "D", "C", "B", "A", "S", "SS", "SSS"];
+    const index = Math.min(tiers.length - 1, Math.max(0, score - 4));
+    return tiers[index];
+}
+
+function getTierColor(tier) {
+    const colors = {
+        F: "rgb(140, 140, 140)",
+        E: "rgb(160, 160, 160)",
+        D: "rgb(180, 180, 180)",
+        C: "rgb(120, 200, 120)",
+        B: "rgb(80, 160, 255)",
+        A: "rgb(160, 100, 255)",
+        S: "rgb(255, 200, 40)",
+        SS: "rgb(255, 140, 40)",
+        SSS: "rgb(255, 60, 180)",
+    };
+    return colors[tier] || "rgb(180, 180, 180)";
+}
+
+function formatRarity(rarity) {
+    return "(" + String(rarity).trim() + ")";
+}
+
+function drawFortuneValue(labelX, textY, nameText, rarity, defaultColor) {
+    fill(defaultColor);
+    text(nameText + " ", labelX, textY);
+    const nameWidth = textWidth(nameText + " ");
+    fill(getRarityColor(rarity));
+    text(formatRarity(rarity), labelX + nameWidth, textY);
+}
+
 function drawFortuneCard(
     x,
     y,
@@ -140,8 +213,7 @@ function drawFortuneCard(
     fontSize,
     textColor,
     title,
-    firstFortune,
-    firstFortuneResult,
+    fortunes,
 ) {
     push();
     // draws the card rectangle
@@ -156,8 +228,56 @@ function drawFortuneCard(
     textSize(fontSize);
     textFont(font);
     fill(textColor);
+    textAlign(LEFT, CENTER);
+
+    const labelX = x - cardWidth / 2 + 40;
+    let textY = y - cardHeight / 2 + 50;
+
     // title
-    text(title, x - (x/8), y - (y/2));
+    text(title, labelX, textY);
+    textY += 50;
+
+    // Magic Stone: name + rarity
+    fill(textColor);
+    text("Magic Stone:", labelX, textY);
+    textY += 30;
+    drawFortuneValue(labelX, textY, capitalize(fortunes[0][0]), fortunes[0][1], textColor);
+    textY += 45;
+
+    // Power: name, damage + rarity
+    fill(textColor);
+    text("Power:", labelX, textY);
+    textY += 30;
+    drawFortuneValue(
+        labelX,
+        textY,
+        capitalize(fortunes[1][0]) + ", " + fortunes[1][1] + " damage",
+        fortunes[1][2],
+        textColor
+    );
+    textY += 45;
+
+    // Order: name + rarity
+    fill(textColor);
+    text("Order:", labelX, textY);
+    textY += 30;
+    drawFortuneValue(labelX, textY, capitalize(fortunes[2][0]), fortunes[2][1], textColor);
+    textY += 45;
+
+    // Class: name + rarity
+    fill(textColor);
+    text("Class:", labelX, textY);
+    textY += 30;
+    drawFortuneValue(labelX, textY, capitalize(fortunes[3][0]), fortunes[3][1], textColor);
+
+    // Overall card tier from combined rarities
+    const tier = getCardTier(fortunes);
+    const tierY = y + cardHeight / 2 - 45;
+    fill(textColor);
+    text("Card Tier:", labelX, tierY);
+    fill(getTierColor(tier));
+    text(tier, labelX + textWidth("Card Tier: "), tierY);
+
     pop();
 }
 
@@ -257,15 +377,8 @@ function getFortunes() {
 function setup() {
     rectMode(CENTER);
     createCanvas(canvasWidth, canvasHeight);
-
-    // let chosenFortunes = getFortunes();
-    // console.log(chosenFortunes)
-
-    for (let i = 0; i < 1000; i++) {
-        let chosenFortunes = getFortunes();
-        console.log(chosenFortunes);
-    }
-
+    chosenFortunes = [getFortunes(), getFortunes(), getFortunes()];
+    console.log(chosenFortunes);
 }
 
 
@@ -274,18 +387,31 @@ function setup() {
 */
 function draw() {
     background(backgroundColor);
-    drawFortuneCard(
-        canvasWidth / 2, // x
-        canvasHeight / 2, // y
-        350, // card width
-        550, // card height
-        15, // stroke
-        strokeColor, // stroke color
-        cardBackgroundColor, // bakcground color
-        pixelFont, // font
-        15, // font size
-        textColor, //textColor
-        "Fortune Card 1", // title
-        "Magic Stone: ", // title of first fortune
-    );
+    const cardWidth = 350;
+    const cardHeight = 550;
+    const gap = 40;
+    const centerX = canvasWidth / 2;
+    const centerY = canvasHeight / 2;
+    const cardXs = [
+        centerX - cardWidth - gap,
+        centerX,
+        centerX + cardWidth + gap,
+    ];
+
+    for (let i = 0; i < chosenFortunes.length; i++) {
+        drawFortuneCard(
+            cardXs[i], // x
+            centerY, // y
+            cardWidth, // card width
+            cardHeight, // card height
+            15, // stroke
+            strokeColor, // stroke color
+            cardBackgroundColor, // bakcground color
+            pixelFont, // font
+            15, // font size
+            textColor, //textColor
+            "Fortune Card " + (i + 1), // title
+            chosenFortunes[i], // fortune data from getFortunes()
+        );
+    }
 }
