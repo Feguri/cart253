@@ -69,29 +69,30 @@ const fortuneObjects = {
         }
     },
     order: {
-        commonOrders: [
-            "smiths",
-            "sphynxs",
-            "shallows",
-            "gravestones union",
-            "galeccia family",
-            "cascadia",
-            "klorence army",
-            "vegetables",
-            "caned",
-        ],
-        rareOrders: [
-            "sparxiax galactic",
-            "cullmanstox",
-            "imperial family",
-            "clarxmaidens"
-        ],
-        ultraRareOrders: [
-            "royal family",
-            "ultimum",
-            "glass'o corp.",
-            "sp4ti4l 4n0m4ly",
-        ]
+        // order: protection
+        commonOrders: {
+            smiths: 35,
+            sphynxs: 48,
+            shallows: 20,
+            "gravestones union": 55,
+            "galeccia family": 42,
+            cascadia: 30,
+            "klorence army": 50,
+            vegetables: 0,
+            caned: 25,
+        },
+        rareOrders: {
+            "sparxiax galactic": 180,
+            cullmanstox: 220,
+            "imperial family": 300,
+            clarxmaidens: 150,
+        },
+        ultraRareOrders: {
+            "royal family": 800,
+            ultimum: 5000,
+            "glass'o corp.": 1200,
+            "sp4ti4l 4n0m4ly": "Infinite",
+        }
     },
     class: {
         commonClasses: [
@@ -172,7 +173,7 @@ function getCardTier(fortunes) {
     const score =
         getRarityScore(fortunes[0][1]) +
         getRarityScore(fortunes[1][2]) +
-        getRarityScore(fortunes[2][1]) +
+        getRarityScore(fortunes[2][2]) +
         getRarityScore(fortunes[3][1]);
 
     const tiers = ["F", "E", "D", "C", "B", "A", "S", "SS", "SSS"];
@@ -267,11 +268,17 @@ function drawFortuneCard(
     );
     textY += 45;
 
-    // Order: name + rarity
+    // Order: name, protection + rarity
     fill(textColor);
     text("Order:", labelX, textY);
     textY += 30;
-    drawFortuneValue(labelX, textY, capitalize(fortunes[2][0]), fortunes[2][1], textColor);
+    drawFortuneValue(
+        labelX,
+        textY,
+        capitalize(fortunes[2][0]) + ", " + fortunes[2][1] + " protection",
+        fortunes[2][2],
+        textColor
+    );
     textY += 45;
 
     // Class: name + rarity
@@ -383,7 +390,12 @@ function getFortunes() {
         }
     }
 
-    let chosenStoneText = [[chosenStone[0], chosenStone[1]], [chosenPower[0], chosenPower[1], chosenPower[2]], [chosenOrder[0], chosenOrder[1]], [chosenClass[0], chosenClass[1]]];
+    let chosenStoneText = [
+        [chosenStone[0], chosenStone[1]],
+        [chosenPower[0], chosenPower[1], chosenPower[2]],
+        [chosenOrder[0], chosenOrder[1], chosenOrder[2]],
+        [chosenClass[0], chosenClass[1]],
+    ];
 
     return chosenStoneText;
 }
