@@ -1,0 +1,252 @@
+@font-face {
+  font-family: "Pixelated";
+  src: url("../assets/fonts/pixelated.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --bg: rgb(28, 24, 22);
+  --panel: rgb(62, 48, 42);
+  --panel-edge: rgb(246, 237, 232);
+  --text: rgb(246, 237, 232);
+  --muted: rgb(180, 168, 160);
+  --common: rgb(180, 180, 180);
+  --rare: rgb(80, 160, 255);
+  --ultra: rgb(255, 200, 40);
+  --impossible: rgb(255, 60, 180);
+  --tier-f: rgb(140, 140, 140);
+  --tier-e: rgb(160, 160, 160);
+  --tier-d: rgb(180, 180, 180);
+  --tier-c: rgb(120, 200, 120);
+  --tier-b: rgb(80, 160, 255);
+  --tier-a: rgb(160, 100, 255);
+  --tier-s: rgb(255, 200, 40);
+  --tier-ss: rgb(255, 140, 40);
+  --tier-sss: rgb(255, 60, 180);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow: auto;
+  background:
+    radial-gradient(ellipse at top, rgb(48, 38, 34), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Pixelated", monospace;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--ultra);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--impossible);
+}
+
+.page {
+  width: min(920px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 48px 0 80px;
+}
+
+.hero {
+  border: 8px solid var(--panel-edge);
+  background: var(--panel);
+  padding: 36px 40px 40px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.hero h1 {
+  margin: 0 0 18px;
+  font-size: 34px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.lead {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--text);
+}
+
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-bottom: 28px;
+  padding: 18px 22px;
+  border: 4px solid var(--panel-edge);
+  background: rgb(40, 32, 28);
+}
+
+.toc a {
+  color: var(--rare);
+}
+
+.panel {
+  border: 8px solid var(--panel-edge);
+  background: var(--panel);
+  padding: 32px 36px 36px;
+  margin-bottom: 24px;
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.panel h3 {
+  margin: 28px 0 12px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.section-note {
+  margin: 0 0 8px;
+  color: var(--muted);
+  max-width: 68ch;
+}
+
+.rule-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.rule {
+  border: 3px solid rgba(246, 237, 232, 0.35);
+  padding: 18px 18px 16px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.rule h3 {
+  margin: 0 0 10px;
+  color: var(--ultra);
+}
+
+.rule p {
+  margin: 0;
+  color: var(--text);
+}
+
+.fortune-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px 16px;
+}
+
+.fortune-list li {
+  border-bottom: 1px solid rgba(246, 237, 232, 0.18);
+  padding: 6px 0;
+}
+
+.fortune-list.stats {
+  grid-template-columns: 1fr;
+  max-width: 420px;
+}
+
+.fortune-list.stats li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.stat {
+  color: var(--muted);
+}
+
+.health-hint {
+  color: var(--muted);
+  font-size: 13px;
+  margin-left: 8px;
+}
+
+.rarity.common {
+  color: var(--common);
+}
+
+.rarity.rare {
+  color: var(--rare);
+}
+
+.rarity.ultra {
+  color: var(--ultra);
+}
+
+.rarity.impossible {
+  color: var(--impossible);
+}
+
+.tier-row {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.tier {
+  min-width: 48px;
+  text-align: center;
+  padding: 10px 12px;
+  border: 2px solid currentColor;
+}
+
+.tier.F { color: var(--tier-f); }
+.tier.E { color: var(--tier-e); }
+.tier.D { color: var(--tier-d); }
+.tier.C { color: var(--tier-c); }
+.tier.B { color: var(--tier-b); }
+.tier.A { color: var(--tier-a); }
+.tier.S { color: var(--tier-s); }
+.tier.SS { color: var(--tier-ss); }
+.tier.SSS { color: var(--tier-sss); }
+
+.footer {
+  text-align: center;
+  padding-top: 12px;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(100% - 24px, 920px);
+    padding-top: 24px;
+  }
+
+  .hero,
+  .panel {
+    padding: 24px 20px;
+    border-width: 6px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .rule-grid {
+    grid-template-columns: 1fr;
+  }
+}
