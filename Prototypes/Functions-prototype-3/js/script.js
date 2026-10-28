@@ -113,14 +113,29 @@ function drawLights() {
  * Simple cross roads on the green canvas.
  */
 function drawIntersection() {
-
+    noStroke();
+    fill(80);
+    rectMode(CORNER);
+    // horizontal road
+    rect(0, height / 2 - 40, width, 80);
+    // vertical road
+    rect(width / 2 - 40, 0, 80, height);
 }
 
 /**
  * Move balls left -> right across the road. Light does not affect them yet.
  */
 function updateBalls() {
-
+    // brutalist way to dictate traffic ... area of improvement in the future
+    if (trafficLight.red.status != "active") {    
+        for (let i = 0; i < balls.length; i++) {
+            balls[i].x += balls[i].speed;
+            // wrap back to the left when they leave the canvas
+            if (balls[i].x > width + balls[i].size) {
+                balls[i].x = -balls[i].size;
+            }
+        }
+    }
 }
 
 function drawBalls() {
