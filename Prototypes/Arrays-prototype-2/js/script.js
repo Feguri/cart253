@@ -7,11 +7,23 @@
 
 "use strict";
 
-/**
- * 
-*/
-function setup() {
+let fallingObjects = [];
 
+function setup() {
+    createCanvas(800, 600);
+
+    let totalObjects = floor(random(30, 51));
+
+    for (let i = 0; i < totalObjects; i++) {
+        fallingObjects.push({
+            x: random(0, width),
+            y: random(-height, 0), 
+            speed: random(1, 5),
+            size: random(10, 25),
+            color: color(random(255), random(255), random(255)),
+        });
+    }
+    console.log(fallingObjects);
 }
 
 
