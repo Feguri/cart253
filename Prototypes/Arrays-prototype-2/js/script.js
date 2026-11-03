@@ -2,7 +2,7 @@
  * Falling Confetti
  * Felipe Paiva
  * 
- * Makes an array of 30 to 50 small objects, each with its own x, y, speed, size, and color. Every frame, it loops through the array to move and draw each piece. When a piece falls off the bottom, it send it back to the top at a new random x.
+ * Makes an array of small objects, each with its own x, y, speed, size, and color. Every frame, it loops through the array to move and draw each piece. When a piece falls off the bottom, it send it back to the top at a new random x.
  */
 
 "use strict";
@@ -13,7 +13,7 @@ let fallingObjects = [];
 function setup() {
     createCanvas(800, 600);
 
-    let totalObjects = floor(random(30, 51));
+    let totalObjects = floor(random(30, 501));
 
     for (let i = 0; i < totalObjects; i++) {
         fallingObjects.push({
