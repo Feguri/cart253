@@ -31,6 +31,10 @@ function eraseCircle(x, y) {
     circle(x, y, 50); 
     noErase(); 
 }
+
+function restoreDirt(x, y) {
+    
+}   
 /**
  * 
 */

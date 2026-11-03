@@ -31,7 +31,6 @@ function drawObject(obj) {
     push();
     fill(obj.color);
     rect(obj.x, obj.y, obj.size, obj.size);
-    console.log(obj);
     pop();
 }
 
