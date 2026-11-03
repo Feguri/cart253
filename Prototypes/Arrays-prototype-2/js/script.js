@@ -7,6 +7,7 @@
 
 "use strict";
 
+const backgroundColor = "rgb(218, 220, 220)";
 let fallingObjects = [];
 
 function setup() {
@@ -23,13 +24,33 @@ function setup() {
             color: color(random(255), random(255), random(255)),
         });
     }
-    console.log(fallingObjects);
+    noStroke();
 }
 
+function drawObject(obj) {
+    push();
+    fill(obj.color);
+    rect(obj.x, obj.y, obj.size, obj.size);
+    console.log(obj);
+    pop();
+}
 
 /**
  * 
 */
 function draw() {
+    background(backgroundColor);
+    for (let i = 0; i < fallingObjects.length; i++) {
+        let obj = fallingObjects[i];
+        // makes it fall
+        obj.y += obj.speed;
 
+        // reset at the top with a random position
+        if (obj.y > height) {
+            obj.y = random(-50, 0);
+            obj.x = random(0, width);
+        }
+
+        drawObject(obj);
+    }
 }
