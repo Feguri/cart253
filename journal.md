@@ -52,7 +52,7 @@ Then, I moved on into coding the third prototype. This was the most fun. It took
 
 Finally, for the second prototype, I illustrated a little cat character in illustrator as well as different expressions for him. In this prototype, I made him sleep for 30 seconds and be awake for 30 seconds as well. If you click on him, he gets annoyed. And if you do it while he is sleeping, his sleeping time will increase every time.
 
-## Entry 5 - 2026/10/27 - Function Prototypes
+## Entry 6 - 2026/10/27 - Function Prototypes
 
 Making these was really fun. I fell into the old habit again, putting a giant amount of effort in one program (the stars one) then realizing there is not much time left for the others. I will try to learn from this and write up more moderate prototype expectations for the next time.
 
@@ -61,3 +61,18 @@ With that being said, I had a lot of fun doing these. And it was part of the rea
 The last prototype was the one that felt the most rushed, I really didn't have a lot of time to make it. It is still fun and quirky in its own way though, and still gave me some ideas for other projects.
 
 Yeah, I'm a big fan of space, fortunes, randomness, loot, stats, and game-like stuff, and I got hooked into making these!
+
+## Entry 7 - 2026/11/03 - Function Prototypes
+
+### Making of the three prototypes: a journey.
+
+The journey began at a home, a cozy home. I had a stict idea based on Pippin's feedback: create all those prototypes in a timely manner by making three very small, but functional prototypes instead of focusing on one for too long and gettin lost on time.
+The adventure starts with a very simple solution for the first prototype: colors that change! and that's.. it. Not much. But it was functional and I was able to move on the the next prototype.
+
+The second prototype in this journey was one that surprised me (and not the last one to surprise me). I wanted to make random objects fall from the top of the prototype, and it ended up looking like confeti. I don't know how to pronounce that word properly. Anyways, I made the confetti go back to the top at a random x position if it disappeared at the bottom. What surprised me is that it created a sort of parallax effect, almost making it feel and look 3D!
+
+For the third prototype in this journey I wanted to create sort of like a worm thingy, and ended up creating a whole worm simulator. It was fun, I changed the colors of the background and the worm so that it looked as if you're under the dirt and the worm is eating the dirt and leaving sort of a trail behind it. 
+
+I feel like all of these projects can be expanded into full games one way of another. One fun thing abut prototypes is that you can iterate through many different ideas, experiment, and eventually find something that's worthwile digging deeper into.
+
+That is the end of the journey/adventure. I had a fun time doing it.

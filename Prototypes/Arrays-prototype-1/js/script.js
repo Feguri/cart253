@@ -2,7 +2,7 @@
  * Color stripes
  * Felipe Paiva
  * 
- * Stores 5 to 8 colors in an array and draw them as vertical stripes across the canvas. Clicking cycles which color is “selected” and highlights that stripe, and pressing a key swaps two colors or reverses the array.
+ * Stores 5 to 8 colors in an array and draws them as vertical stripes across the canvas. Clicking cycles which color is “selected” and highlights that stripe, and pressing a key swaps two colors or reverses the array.
  */
 
 "use strict";
@@ -14,6 +14,7 @@ const colors = ["rgb(151, 213, 213)", "rgb(149, 226, 163)", "rgb(224, 160, 212)"
  * 
 */
 
+// draws a color based on the array colors, takes in a color and an index number.
 function drawColor(color, indexNumber) {
     push();
     if (indexNumber === currentColorIndex) {
@@ -28,10 +29,12 @@ function drawColor(color, indexNumber) {
     pop();
 }
 
+// sets up a Canvas 1000 width and 500 height
 function setup() {
     createCanvas(1000, 500);
 }
 
+// switches color indexes every time there is a mouse click
 function mouseClicked() {
     if (currentColorIndex < colors.length) {
         currentColorIndex++;
@@ -41,7 +44,7 @@ function mouseClicked() {
 }
 
 /**
- * 
+ * draws all colors using a for loop.
 */
 function draw() {
     background(backgroundColor);

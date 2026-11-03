@@ -6,12 +6,13 @@
  */
 
 "use strict";
+// global variables: background color and circle color..
 const backgroundColor = "rgb(56, 35, 9)";
 let circleColor = "rgb(218, 170, 98)";
 
 let mouseXY = [];
 /**
- * 
+ * Creates the canvas
 */
 function setup() {
     createCanvas(800, 600);
@@ -19,6 +20,7 @@ function setup() {
     noStroke();
 }
 
+// draws a circle using x and y positions
 function drawCircle(x, y) {
     push();
     fill(circleColor);
@@ -26,6 +28,7 @@ function drawCircle(x, y) {
     pop();
 }
 
+// erases a circle based on its x and y position
 function eraseCircle(x, y) {
     erase(); 
     circle(x, y, 50); 
@@ -36,7 +39,7 @@ function restoreDirt(x, y) {
     
 }   
 /**
- * 
+ * draws. circle based on mouse position while also pushing it into the mouseXY array. If the length of the array is above 50, it will always delete the last one using the .shift() function. Then it will draw all circles in the array using a for loop.
 */
 function draw() {
     drawCircle(mouseX, mouseY);

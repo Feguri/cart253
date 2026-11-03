@@ -10,6 +10,7 @@
 const backgroundColor = "rgb(218, 220, 220)";
 let fallingObjects = [];
 
+// creates the canvas, then makes objects (in a rage between 30 and 500), and adds those objects with random parameters into the fallingObjects array.
 function setup() {
     createCanvas(800, 600);
 
@@ -27,6 +28,7 @@ function setup() {
     noStroke();
 }
 
+// simply draws an object based on position, size, x and y. it also uses the object's color.
 function drawObject(obj) {
     push();
     fill(obj.color);
@@ -35,7 +37,7 @@ function drawObject(obj) {
 }
 
 /**
- * 
+ * draws all of the confettis using a for loop based on the falling objects length. Makes the object fall by increasing the speed with the fall
 */
 function draw() {
     background(backgroundColor);
